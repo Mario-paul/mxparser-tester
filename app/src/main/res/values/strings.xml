@@ -1,3 +1,10 @@
 <resources>
+
     <string name="app_name">mXparser Tester</string>
+
+    <!--    activity_main.xml-->
+    <string name="input_box_hint">Enter expression</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="default_output_text">0.0</string>
+
 </resources>
