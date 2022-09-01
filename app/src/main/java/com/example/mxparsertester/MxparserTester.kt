@@ -2,15 +2,70 @@ package com.example.mxparsertester
 
 import android.util.Log
 import org.mariuszgromada.math.mxparser.Expression
+import org.mariuszgromada.math.mxparser.License
 import org.mariuszgromada.math.mxparser.mXparser
 
-class MxparserTester() {
 
-    fun testMxparserLibrary(smartRoundingOption: String) {
+class MxparserTester(smartRoundingOption: String) {
+
+    private val mSmartRoundingOption = smartRoundingOption
+    private val mSignature = "Mario Paul"
+
+    init {
+        init(mSmartRoundingOption)
+    }
+
+    private fun init(smartRoundingOption: String) {
+        when (smartRoundingOption) {
+            "almostIntegerRounding" -> {
+                mXparser.consolePrintln("'Almost Integer Rounding' option selected")
+                mXparser.enableAlmostIntRounding()
+                mXparser.disableUlpRounding()
+                mXparser.disableCanonicalRounding()
+            }
+            "unitInTheLast" -> {
+                mXparser.consolePrintln("'Unit in the Last Place Rounding' option selected")
+                mXparser.disableAlmostIntRounding()
+                mXparser.enableUlpRounding()
+                mXparser.disableCanonicalRounding()
+            }
+            "canonicalRounding" -> {
+                mXparser.consolePrintln("'Canonical Rounding' option selected")
+                mXparser.disableAlmostIntRounding()
+                mXparser.disableUlpRounding()
+                mXparser.enableCanonicalRounding()
+            }
+            "none" -> {
+                mXparser.consolePrintln("Rounding options disabled")
+                mXparser.disableAlmostIntRounding()
+                mXparser.disableUlpRounding()
+                mXparser.disableCanonicalRounding()
+            }
+            else -> {
+                Log.e("mXparser", "Not a valid smart rounding option selected")
+            }
+        }
+    }
+
+    fun calculate(operation: String): String {
+
+        val expression = Expression(operation)
+        val result = expression.calculate()
+
+        Log.e(expression.expressionString, result.toString())
+        return result.toString()
+
+    }
+
+    fun runPresetTest(smartRoundingOption: String) {
+
+        Log.e("mXparser", "======================================================")
+        Log.e("mXparser", "Starting preset test")
 
         when (smartRoundingOption) {
             "almostIntegerRounding" -> {
 
+                mXparser.consolePrintln("'Almost Integer Rounding' option selected")
                 mXparser.enableAlmostIntRounding()
                 mXparser.disableUlpRounding()
                 mXparser.disableCanonicalRounding()
@@ -30,8 +85,9 @@ class MxparserTester() {
                 mXparser.consolePrintln(e5.expressionString + " = " + e5.calculate())
 
             }
-            "unitInTheLastPlaceRounding" -> {
+            "unitInTheLast" -> {
 
+                mXparser.consolePrintln("'Unit in the Last Place Rounding' option selected")
                 mXparser.disableAlmostIntRounding()
                 mXparser.enableUlpRounding()
                 mXparser.disableCanonicalRounding()
@@ -53,6 +109,7 @@ class MxparserTester() {
             }
             "canonicalRounding" -> {
 
+                mXparser.consolePrintln("'Canonical Rounding' option selected")
                 mXparser.disableAlmostIntRounding()
                 mXparser.disableUlpRounding()
                 mXparser.enableCanonicalRounding()
@@ -73,6 +130,8 @@ class MxparserTester() {
 
             }
             "none" -> {
+
+                mXparser.consolePrintln("Rounding options disabled")
                 mXparser.disableAlmostIntRounding()
                 mXparser.disableUlpRounding()
                 mXparser.disableCanonicalRounding()
@@ -90,22 +149,47 @@ class MxparserTester() {
                 mXparser.consolePrintln(e3.expressionString + " = " + e3.calculate())
                 mXparser.consolePrintln(e4.expressionString + " = " + e4.calculate())
                 mXparser.consolePrintln(e5.expressionString + " = " + e5.calculate())
+
             }
             else -> {
-                Log.e("mXparser tester error", "Not a valid smart rounding option selected")
+                Log.e("mXparser", "Not a valid smart rounding option selected")
             }
         }
 
+        mXparser.consolePrintln("Setting rounding option back to init value:")
+        init(mSmartRoundingOption)
+
+        Log.e("mXparser", "Test complete")
+        Log.e("mXparser", "======================================================")
+
     }
 
-    fun calculate(operation: String) : String {
+    fun confirmNonCommercialUse() {
+        mXparser.consolePrintln("Confirming Non Commercial Use license")
+        /* Non-Commercial Use Confirmation */
+        val isCallSuccessful: Boolean = License.iConfirmNonCommercialUse(mSignature)
+        /* Verification if use type has been already confirmed */
+        val isConfirmed: Boolean = License.checkIfUseTypeConfirmed()
+        /* Checking use type confirmation message */
+        val message: String = License.getUseTypeConfirmationMessage()
+        /* ----------- */
+        mXparser.consolePrintln("isCallSuccessful = $isCallSuccessful")
+        mXparser.consolePrintln("isConfirmed = $isConfirmed")
+        mXparser.consolePrintln("message = $message")
+    }
 
-        val expression = Expression(operation)
-        val result = expression.calculate()
-
-        Log.e(expression.expressionString, result.toString())
-        return result.toString()
-
+    fun confirmCommercialUse() {
+        mXparser.consolePrintln("Confirming Commercial Use license")
+        /* Commercial Use Confirmation */
+        val isCallSuccessful = License.iConfirmCommercialUse(mSignature)
+        /* Verification if use type has been already confirmed */
+        val isConfirmed = License.checkIfUseTypeConfirmed()
+        /* Checking use type confirmation message */
+        val message = License.getUseTypeConfirmationMessage()
+        /* ----------- */
+        mXparser.consolePrintln("isCallSuccessful = $isCallSuccessful")
+        mXparser.consolePrintln("isConfirmed = $isConfirmed")
+        mXparser.consolePrintln("message = $message")
     }
 
 }
