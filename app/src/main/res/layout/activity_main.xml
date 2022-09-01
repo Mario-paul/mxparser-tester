@@ -25,15 +25,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:hint="Enter expression"
-        android:inputType="text"
         android:id="@+id/input_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Enter expression"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/output_screen" />
 
     <Button
+        android:id="@+id/calculate_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calculate"

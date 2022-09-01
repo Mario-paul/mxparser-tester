@@ -98,12 +98,13 @@ class MxparserTester() {
 
     }
 
-    fun calculate(operation: String) {
+    fun calculate(operation: String) : String {
 
-//        mXparser library TESTER CODE
         val expression = Expression(operation)
         val result = expression.calculate()
+
         Log.e(expression.expressionString, result.toString())
+        return result.toString()
 
     }
 
