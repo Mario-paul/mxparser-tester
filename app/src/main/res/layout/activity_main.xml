@@ -20,7 +20,7 @@
             android:layout_height="100dp"
             android:text="@string/default_output_text"
             android:textAlignment="textEnd"
-            android:textSize="44sp" />
+            android:textSize="48sp" />
 
         <EditText
             android:id="@+id/input_box"
@@ -119,12 +119,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-
                 android:id="@+id/linear_layout_scientific_row_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/button_angle_units"
@@ -192,8 +191,8 @@
                 android:id="@+id/linear_layout_scientific_row_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/button_invert"
@@ -340,12 +339,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-
                 android:id="@+id/linear_layout_scientific_row_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/button_angle_units_dummy"
@@ -410,12 +408,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:visibility="gone"
-
                 android:id="@+id/linear_layout_scientific_row_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <Button
                     android:id="@+id/button_invert_dummy"
