@@ -210,4 +210,8 @@ class MxparserTester(smartRoundingOption: String) {
         mXparser.consolePrintln("message = $message")
     }
 
+    fun consolePrintLicense() {
+        License.consolePrintLicense()
+    }
+
 }
