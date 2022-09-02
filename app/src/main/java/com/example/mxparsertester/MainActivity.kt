@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var myMxparser: MxparserTester
     private var scientificGroup1Visible = true
+    private var scientificRowsHidden = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -87,6 +88,8 @@ class MainActivity : AppCompatActivity() {
         binding.buttonClear.setOnClickListener { onClear() }
         binding.buttonEquals.setOnClickListener { onEqual() }
 //        binding.buttonBackspace.setOnClickListener { onBackspace() }
+
+        binding.buttonToggleRows.setOnClickListener { toggleRows() }
 
     }
 
@@ -211,6 +214,24 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun toggleRows() {
+        if (scientificRowsHidden) {
+            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_up)
+            binding.linearLayoutScientificRow2.visibility = View.VISIBLE
+            binding.linearLayoutScientificRow3.visibility = View.VISIBLE
+            binding.linearLayoutScientificRow5.visibility = View.VISIBLE
+            binding.linearLayoutScientificRow6.visibility = View.VISIBLE
+            scientificRowsHidden = false
+        } else {
+            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_down)
+            binding.linearLayoutScientificRow2.visibility = View.GONE
+            binding.linearLayoutScientificRow3.visibility = View.GONE
+            binding.linearLayoutScientificRow5.visibility = View.GONE
+            binding.linearLayoutScientificRow6.visibility = View.GONE
+            scientificRowsHidden = true
+        }
     }
 
     private fun toggleScientificButtons() {

@@ -45,5 +45,7 @@
     <string name="button_tangent_inverse">tan⁻¹</string>
     <string name="button_euler_exponent">eˣ</string>
     <string name="button_power_10">10ˣ</string>
+    <string name="button_toggle_down">ᐯ</string>
+    <string name="button_toggle_up">ᐱ</string>
 
 </resources>

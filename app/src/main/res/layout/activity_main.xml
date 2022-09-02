@@ -61,7 +61,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_square_root"
                     android:textAlignment="center"
@@ -73,7 +73,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_pi"
                     android:textAlignment="center"
@@ -85,7 +85,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_power"
                     android:textAlignment="center"
@@ -97,9 +97,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_factorial"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/test1"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -107,6 +119,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
+
                 android:id="@+id/linear_layout_scientific_row_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +131,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
@@ -129,7 +143,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_sine"
                     android:textAlignment="center"
@@ -141,7 +155,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_cosine"
                     android:textAlignment="center"
@@ -153,9 +167,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_tangent"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/test2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -166,6 +192,7 @@
                 android:id="@+id/linear_layout_scientific_row_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <Button
@@ -173,7 +200,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_invert"
                     android:textAlignment="center"
@@ -185,7 +212,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
@@ -197,7 +224,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_natural_logarithm"
                     android:textAlignment="center"
@@ -209,9 +236,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_logarithm"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/test3"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -243,7 +282,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_square"
                     android:textAlignment="center"
@@ -255,7 +294,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_pi"
                     android:textAlignment="center"
@@ -267,7 +306,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_power"
                     android:textAlignment="center"
@@ -279,9 +318,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_factorial"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_toggle_rows"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text="@string/button_toggle_down"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -289,6 +340,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
+
                 android:id="@+id/linear_layout_scientific_row_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -299,7 +352,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
@@ -311,7 +364,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_sine_inverse"
                     android:textAlignment="center"
@@ -323,7 +376,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_cosine_inverse"
                     android:textAlignment="center"
@@ -335,9 +388,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_tangent_inverse"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/test5"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -345,6 +410,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
+
                 android:id="@+id/linear_layout_scientific_row_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -355,7 +422,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_invert"
                     android:textAlignment="center"
@@ -367,7 +434,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
@@ -379,7 +446,7 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_euler_exponent"
                     android:textAlignment="center"
@@ -391,9 +458,21 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
                     android:layout_weight="1"
                     android:text="@string/button_power_10"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/test6"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_weight="@dimen/toggle_button_weight"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
