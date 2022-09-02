@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonExponent.setOnClickListener { onOperator(binding.buttonExponent) }
         binding.buttonFactorial.setOnClickListener { onOperator(binding.buttonFactorial) }
 
-        binding.buttonDegreeRadian.setOnClickListener { onOperator(binding.buttonDegreeRadian) }
+        binding.buttonAngleUnits.setOnClickListener { onOperator(binding.buttonAngleUnits) }
         binding.buttonSine.setOnClickListener { onOperator(binding.buttonSine) }
         binding.buttonCosine.setOnClickListener { onOperator(binding.buttonCosine) }
         binding.buttonTangent.setOnClickListener { onOperator(binding.buttonTangent) }
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonExponentDummy.setOnClickListener { onOperator(binding.buttonExponentDummy) }
         binding.buttonFactorialDummy.setOnClickListener { onOperator(binding.buttonFactorialDummy) }
 
-        binding.buttonDegreeRadianDummy.setOnClickListener { onOperator(binding.buttonDegreeRadianDummy) }
+        binding.buttonAngleUnitsDummy.setOnClickListener { onOperator(binding.buttonAngleUnitsDummy) }
         binding.buttonSineInverse.setOnClickListener { onOperator(binding.buttonSineInverse) }
         binding.buttonCosineInverse.setOnClickListener { onOperator(binding.buttonCosineInverse) }
         binding.buttonTangentInverse.setOnClickListener { onOperator(binding.buttonTangentInverse) }
@@ -154,13 +154,13 @@ class MainActivity : AppCompatActivity() {
                     binding.inputBox.append(operator)
                 }
                 "RAD" -> {
-                    binding.buttonDegreeRadian.text = "DEG"
-                    binding.buttonDegreeRadianDummy.text = "DEG"
+                    binding.buttonAngleUnits.text = "DEG"
+                    binding.buttonAngleUnitsDummy.text = "DEG"
                     myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
                 }
                 "DEG" -> {
-                    binding.buttonDegreeRadian.text = "RAD"
-                    binding.buttonDegreeRadianDummy.text = "RAD"
+                    binding.buttonAngleUnits.text = "RAD"
+                    binding.buttonAngleUnitsDummy.text = "RAD"
                     myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
                 }
                 "sin" -> {

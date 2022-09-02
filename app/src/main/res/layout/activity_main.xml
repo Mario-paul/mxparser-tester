@@ -113,7 +113,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_degree_radian"
+                    android:id="@+id/button_angle_units"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -295,7 +295,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_degree_radian_dummy"
+                    android:id="@+id/button_angle_units_dummy"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
