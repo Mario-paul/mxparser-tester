@@ -15,8 +15,8 @@ class MxparserTester(smartRoundingOption: String) {
         init(mSmartRoundingOption)
     }
 
-    private fun init(smartRoundingOption: String) {
-        when (smartRoundingOption) {
+    private fun init(roundingOption: String) {
+        when (roundingOption) {
             "almostIntegerRounding" -> {
                 mXparser.consolePrintln("'Almost Integer Rounding' option selected")
                 mXparser.enableAlmostIntRounding()
@@ -55,6 +55,24 @@ class MxparserTester(smartRoundingOption: String) {
         Log.e(expression.expressionString, result.toString())
         return result.toString()
 
+    }
+
+    fun toggleAngleUnit(angleUnit: String) {
+        if (angleUnit == "Radians") {
+            mXparser.setDegreesMode()
+            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+        } else {
+            mXparser.setRadiansMode()
+            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+        }
+    }
+
+    fun getCurrentAngleUnit(): String {
+        return if (mXparser.checkIfRadiansMode()) {
+            "Radians"
+        } else {
+            "Degrees"
+        }
     }
 
     fun runPresetTest(smartRoundingOption: String) {
