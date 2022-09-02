@@ -119,7 +119,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="DEG"
+                    android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -131,7 +131,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="sin"
+                    android:text="@string/button_sine"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -143,7 +143,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="cos"
+                    android:text="@string/button_cosine"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -155,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="tan"
+                    android:text="@string/button_tangent"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -175,7 +175,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="INV"
+                    android:text="@string/button_invert"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -187,7 +187,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="ⅇ"
+                    android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -199,7 +199,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="ln"
+                    android:text="@string/button_natural_logarithm"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -211,7 +211,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="log"
+                    android:text="@string/button_logarithm"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -245,7 +245,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="x²"
+                    android:text="@string/button_square"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -301,7 +301,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="DEG"
+                    android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -313,7 +313,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="sin⁻¹"
+                    android:text="@string/button_sine_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -325,7 +325,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="cos⁻¹"
+                    android:text="@string/button_cosine_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -337,7 +337,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="tan⁻¹"
+                    android:text="@string/button_tangent_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -357,7 +357,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="INV"
+                    android:text="@string/button_invert"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -369,7 +369,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="ⅇ"
+                    android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -381,7 +381,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="eˣ"
+                    android:text="@string/button_euler_exponent"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />
@@ -393,7 +393,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/button_margin_horizontal"
                     android:layout_weight="1"
-                    android:text="10ˣ"
+                    android:text="@string/button_power_10"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/special_button_text_size" />

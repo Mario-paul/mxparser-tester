@@ -31,5 +31,19 @@
     <string name="button_parenthesis_right">)</string>
     <string name="button_percentage">%</string>
     <string name="button_backspace">←</string>
+    <string name="button_angle_units_degrees">DEG</string>
+    <string name="button_sine">sin</string>
+    <string name="button_cosine">cos</string>
+    <string name="button_tangent">tan</string>
+    <string name="button_invert">INV</string>
+    <string name="button_eulers_constant">ⅇ</string>
+    <string name="button_natural_logarithm">ln</string>
+    <string name="button_logarithm">log</string>
+    <string name="button_square">x²</string>
+    <string name="button_sine_inverse">sin⁻¹</string>
+    <string name="button_cosine_inverse">cos⁻¹</string>
+    <string name="button_tangent_inverse">tan⁻¹</string>
+    <string name="button_euler_exponent">eˣ</string>
+    <string name="button_power_10">10ˣ</string>
 
 </resources>
