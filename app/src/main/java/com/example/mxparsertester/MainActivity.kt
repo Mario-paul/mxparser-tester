@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
 // ========================= Application code ==============================
         binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
+        showGroup1() // set group 1 visibility as default
 
         // Digits group
         binding.buttonOne.setOnClickListener { onDigit(binding.buttonOne) }
@@ -213,16 +214,49 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleScientificButtons() {
+
         if (scientificGroup1Visible) {
-            binding.scientificButtonsGroup1.visibility = View.INVISIBLE
-            binding.scientificButtonsGroup2.visibility = View.VISIBLE
-            scientificGroup1Visible = false
+            showGroup2()
         } else {
-            binding.scientificButtonsGroup1.visibility = View.VISIBLE
-            binding.scientificButtonsGroup2.visibility = View.INVISIBLE
-            scientificGroup1Visible = true
+            showGroup1()
         }
+
     }
 
+    private fun showGroup1() {
+        binding.buttonSquareRoot.visibility = View.VISIBLE
+        binding.buttonSine.visibility = View.VISIBLE
+        binding.buttonCosine.visibility = View.VISIBLE
+        binding.buttonTangent.visibility = View.VISIBLE
+        binding.buttonNaturalLogarithm.visibility = View.VISIBLE
+        binding.buttonLogarithm.visibility = View.VISIBLE
+
+        binding.buttonSquare.visibility = View.INVISIBLE
+        binding.buttonSineInverse.visibility = View.INVISIBLE
+        binding.buttonCosineInverse.visibility = View.INVISIBLE
+        binding.buttonTangentInverse.visibility = View.INVISIBLE
+        binding.buttonEulerExponent.visibility = View.INVISIBLE
+        binding.buttonPower10.visibility = View.INVISIBLE
+
+        scientificGroup1Visible = true
+    }
+
+    private fun showGroup2() {
+        binding.buttonSquareRoot.visibility = View.INVISIBLE
+        binding.buttonSine.visibility = View.INVISIBLE
+        binding.buttonCosine.visibility = View.INVISIBLE
+        binding.buttonTangent.visibility = View.INVISIBLE
+        binding.buttonNaturalLogarithm.visibility = View.INVISIBLE
+        binding.buttonLogarithm.visibility = View.INVISIBLE
+
+        binding.buttonSquare.visibility = View.VISIBLE
+        binding.buttonSineInverse.visibility = View.VISIBLE
+        binding.buttonCosineInverse.visibility = View.VISIBLE
+        binding.buttonTangentInverse.visibility = View.VISIBLE
+        binding.buttonEulerExponent.visibility = View.VISIBLE
+        binding.buttonPower10.visibility = View.VISIBLE
+
+        scientificGroup1Visible = false
+    }
 
 }
