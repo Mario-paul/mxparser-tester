@@ -6,5 +6,30 @@
     <string name="input_box_hint">Enter expression</string>
     <string name="calculate_button">Calculate</string>
     <string name="default_output_text">0.0</string>
+    <string name="button_equals">=</string>
+    <string name="button_add">+</string>
+    <string name="button_subtract">-</string>
+    <string name="button_multiply">×</string>
+    <string name="button_divide">÷</string>
+    <string name="button_clear">C</string>
+    <string name="button_zero">0</string>
+    <string name="button_one">1</string>
+    <string name="button_two">2</string>
+    <string name="button_three">3</string>
+    <string name="button_four">4</string>
+    <string name="button_five">5</string>
+    <string name="button_six">6</string>
+    <string name="button_seven">7</string>
+    <string name="button_eight">8</string>
+    <string name="button_nine">9</string>
+    <string name="button_period">.</string>
+    <string name="button_square_root">√</string>
+    <string name="button_pi">π</string>
+    <string name="button_power">^</string>
+    <string name="button_factorial">!</string>
+    <string name="button_parenthesis_left">(</string>
+    <string name="button_parenthesis_right">)</string>
+    <string name="button_percentage">%</string>
+    <string name="button_backspace">←</string>
 
 </resources>

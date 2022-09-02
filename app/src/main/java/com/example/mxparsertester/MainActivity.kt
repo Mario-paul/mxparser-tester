@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 //        mxparser.runPresetTest("unitInTheLast") // test mXparser
 
 // ========================= Application code ==============================
-        binding.calculateButton.setOnClickListener {
+        binding.buttonEquals.setOnClickListener {
             binding.outputScreen.text = mxparser.calculate(binding.inputBox.text.toString())
         }
 
