@@ -38,183 +38,371 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_layout_input_output">
 
+        <!--SCIENTIFIC GROUP 1-->
         <LinearLayout
-            android:id="@+id/linear_layout_advanced_buttons3"
-            android:layout_width="0dp"
+            android:id="@+id/scientific_buttons_group_1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible">
 
-            <Button
-                android:id="@+id/button_square_root"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="@string/button_square_root"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_pi"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="@string/button_pi"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_square_root"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_square_root"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
 
-            <Button
-                android:id="@+id/button_power"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="@string/button_power"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_pi"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_pi"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
 
-            <Button
-                android:id="@+id/button_factorial"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="@string/button_factorial"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_exponent"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_power"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_factorial"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_factorial"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_degree_radian"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="DEG"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_sine"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="sin"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_cosine"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="cos"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_tangent"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="tan"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_invert"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="INV"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_eulers_constant"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="ⅇ"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_natural_logarithm"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="ln"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_logarithm"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="log"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <!--SCIENTIFIC GROUP 2-->
         <LinearLayout
-            android:id="@+id/linear_layout_advanced_buttons2"
-            android:layout_width="0dp"
+            android:id="@+id/scientific_buttons_group_2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_advanced_buttons3">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
 
-            <Button
-                android:id="@+id/button_degree_radian"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="DEG"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_sine"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="sin"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_square"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="x²"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
 
-            <Button
-                android:id="@+id/button_cosine"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="cos"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_pi_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_pi"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
 
-            <Button
-                android:id="@+id/button_tangent"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="tan"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
+                <Button
+                    android:id="@+id/button_exponent_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_power"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_factorial_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/button_factorial"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_degree_radian_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="DEG"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_sine_inverse"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="sin⁻¹"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_cosine_inverse"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="cos⁻¹"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_tangent_inverse"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="tan⁻¹"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_scientific_row_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_invert_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="INV"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_eulers_constant_dummy"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="ⅇ"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_euler_exponent"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="eˣ"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+                <Button
+                    android:id="@+id/button_power_10"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/button_margin_horizontal"
+                    android:layout_weight="1"
+                    android:text="10ˣ"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/special_button_text_size" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linear_layout_advanced_buttons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout_advanced_buttons2">
-
-            <Button
-                android:id="@+id/button_inverse"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="INV"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
-
-            <Button
-                android:id="@+id/button_napiers_constant"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="ⅇ"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
-
-            <Button
-                android:id="@+id/button_natural_logarithm"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="ln"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
-
-            <Button
-                android:id="@+id/button_logarithm"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-                android:layout_weight="1"
-                android:text="log"
-                android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/special_button_text_size" />
-
-        </LinearLayout>
-
+        <!--        BASIC CALCULATOR BUTTONS-->
         <Button
             android:id="@+id/button_parenthesis_left"
             android:layout_width="0dp"
@@ -226,7 +414,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button_seven"
             app:layout_constraintEnd_toStartOf="@+id/button_parenthesis_right"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout_advanced_buttons" />
+            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
 
         <Button
             android:id="@+id/button_parenthesis_right"
@@ -238,7 +426,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button_eight"
             app:layout_constraintEnd_toStartOf="@+id/button_percentage"
             app:layout_constraintStart_toEndOf="@+id/button_parenthesis_left"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout_advanced_buttons" />
+            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
 
         <Button
             android:id="@+id/button_percentage"
@@ -251,7 +439,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button_nine"
             app:layout_constraintEnd_toStartOf="@+id/button_divide"
             app:layout_constraintStart_toEndOf="@+id/button_parenthesis_right"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout_advanced_buttons" />
+            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
 
         <Button
             android:id="@+id/button_divide"
@@ -264,7 +452,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button_multiply"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_percentage"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout_advanced_buttons" />
+            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
 
 
         <Button
@@ -425,6 +613,7 @@
             app:layout_constraintStart_toEndOf="@+id/button_three"
             app:layout_constraintTop_toBottomOf="@+id/button_subtract" />
 
+
         <Button
             android:id="@+id/button_zero"
             android:layout_width="0dp"
@@ -479,11 +668,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <Button-->
-<!--        android:id="@+id/calculate_button"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/calculate_button"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/calculate_button"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/calculate_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

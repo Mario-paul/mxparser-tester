@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var myMxparser: MxparserTester
+    private var scientificGroup1Visible = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 //        mxparser.runPresetTest("unitInTheLast") // test mXparser
 
 // ========================= Application code ==============================
+        binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
+
+        // Digits group
         binding.buttonOne.setOnClickListener { onDigit(binding.buttonOne) }
         binding.buttonTwo.setOnClickListener { onDigit(binding.buttonTwo) }
         binding.buttonThree.setOnClickListener { onDigit(binding.buttonThree) }
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonNine.setOnClickListener { onDigit(binding.buttonNine) }
         binding.buttonZero.setOnClickListener { onDigit(binding.buttonZero) }
 
+        // Basic operators group
         binding.buttonAdd.setOnClickListener { onOperator(binding.buttonAdd) }
         binding.buttonSubtract.setOnClickListener { onOperator(binding.buttonSubtract) }
         binding.buttonMultiply.setOnClickListener { onOperator(binding.buttonMultiply) }
@@ -44,9 +49,10 @@ class MainActivity : AppCompatActivity() {
         binding.buttonParenthesisLeft.setOnClickListener { onOperator(binding.buttonParenthesisLeft) }
         binding.buttonParenthesisRight.setOnClickListener { onOperator(binding.buttonParenthesisRight) }
 
+        // Scientific group 1
         binding.buttonSquareRoot.setOnClickListener { onOperator(binding.buttonSquareRoot) }
         binding.buttonPi.setOnClickListener { onOperator(binding.buttonPi) }
-        binding.buttonPower.setOnClickListener { onOperator(binding.buttonPower) }
+        binding.buttonExponent.setOnClickListener { onOperator(binding.buttonExponent) }
         binding.buttonFactorial.setOnClickListener { onOperator(binding.buttonFactorial) }
 
         binding.buttonDegreeRadian.setOnClickListener { onOperator(binding.buttonDegreeRadian) }
@@ -54,17 +60,32 @@ class MainActivity : AppCompatActivity() {
         binding.buttonCosine.setOnClickListener { onOperator(binding.buttonCosine) }
         binding.buttonTangent.setOnClickListener { onOperator(binding.buttonTangent) }
 
-        binding.buttonInverse.setOnClickListener { onOperator(binding.buttonInverse) }
-        binding.buttonNapiersConstant.setOnClickListener { onOperator(binding.buttonNapiersConstant) }
+        binding.buttonInvert.setOnClickListener { onOperator(binding.buttonInvert) }
+        binding.buttonEulersConstant.setOnClickListener { onOperator(binding.buttonEulersConstant) }
         binding.buttonNaturalLogarithm.setOnClickListener { onOperator(binding.buttonNaturalLogarithm) }
         binding.buttonLogarithm.setOnClickListener { onOperator(binding.buttonLogarithm) }
 
+        // Scientific group 2
+        binding.buttonSquare.setOnClickListener { onOperator(binding.buttonSquare) }
+        binding.buttonPiDummy.setOnClickListener { onOperator(binding.buttonPiDummy) }
+        binding.buttonExponentDummy.setOnClickListener { onOperator(binding.buttonExponentDummy) }
+        binding.buttonFactorialDummy.setOnClickListener { onOperator(binding.buttonFactorialDummy) }
+
+        binding.buttonDegreeRadianDummy.setOnClickListener { onOperator(binding.buttonDegreeRadianDummy) }
+        binding.buttonSineInverse.setOnClickListener { onOperator(binding.buttonSineInverse) }
+        binding.buttonCosineInverse.setOnClickListener { onOperator(binding.buttonCosineInverse) }
+        binding.buttonTangentInverse.setOnClickListener { onOperator(binding.buttonTangentInverse) }
+
+        binding.buttonInvertDummy.setOnClickListener { onOperator(binding.buttonInvertDummy) }
+        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(binding.buttonEulersConstantDummy) }
+        binding.buttonEulerExponent.setOnClickListener { onOperator(binding.buttonEulerExponent) }
+        binding.buttonPower10.setOnClickListener { onOperator(binding.buttonPower10) }
+
+        // Decimal, clear, equal buttons
         binding.buttonPeriod.setOnClickListener { onDecimalPoint(binding.buttonPeriod) }
         binding.buttonClear.setOnClickListener { onClear() }
         binding.buttonEquals.setOnClickListener { onEqual() }
 //        binding.buttonBackspace.setOnClickListener { onBackspace() }
-
-        binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
 
     }
 
@@ -87,7 +108,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun onDecimalPoint(view: View) {
         val decimal = (view as Button).text.toString()
-
         binding.inputBox.append(decimal)
     }
 
@@ -135,10 +155,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 "RAD" -> {
                     binding.buttonDegreeRadian.text = "DEG"
+                    binding.buttonDegreeRadianDummy.text = "DEG"
                     myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
                 }
                 "DEG" -> {
                     binding.buttonDegreeRadian.text = "RAD"
+                    binding.buttonDegreeRadianDummy.text = "RAD"
                     myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
                 }
                 "sin" -> {
@@ -151,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                     binding.inputBox.append("tan(")
                 }
                 "INV" -> {
-//                    binding.inputBox.append(operator)
+                    toggleScientificButtons()
                 }
                 "ⅇ" -> {
                     binding.inputBox.append(operator)
@@ -162,6 +184,24 @@ class MainActivity : AppCompatActivity() {
                 "log" -> {
                     binding.inputBox.append("log(")
                 }
+                "x²" -> {
+                    binding.inputBox.append("^2")
+                }
+                "sin⁻¹" -> {
+                    binding.inputBox.append("asin(")
+                }
+                "cos⁻¹" -> {
+                    binding.inputBox.append("acos(")
+                }
+                "tan⁻¹" -> {
+                    binding.inputBox.append("atan(")
+                }
+                "eˣ" -> {
+                    binding.inputBox.append("exp(")
+                }
+                "10ˣ" -> {
+                    binding.inputBox.append("10^")
+                }
                 else -> {
                     Log.e("onOperator() error", "Not a valid operator inputted")
                 }
@@ -171,5 +211,18 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun toggleScientificButtons() {
+        if (scientificGroup1Visible) {
+            binding.scientificButtonsGroup1.visibility = View.INVISIBLE
+            binding.scientificButtonsGroup2.visibility = View.VISIBLE
+            scientificGroup1Visible = false
+        } else {
+            binding.scientificButtonsGroup1.visibility = View.VISIBLE
+            binding.scientificButtonsGroup2.visibility = View.INVISIBLE
+            scientificGroup1Visible = true
+        }
+    }
+
 
 }
