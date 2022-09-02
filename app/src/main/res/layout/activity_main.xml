@@ -17,10 +17,10 @@
         <TextView
             android:id="@+id/output_screen"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="100dp"
             android:text="@string/default_output_text"
             android:textAlignment="textEnd"
-            android:textSize="40sp" />
+            android:textSize="44sp" />
 
         <EditText
             android:id="@+id/input_box"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:textAlignment="textEnd"
-            android:textSize="26sp" />
+            android:textSize="32sp" />
 
     </LinearLayout>
 
@@ -66,7 +66,7 @@
                     android:text="@string/button_square_root"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_pi"
@@ -78,7 +78,7 @@
                     android:text="@string/button_pi"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_exponent"
@@ -90,7 +90,7 @@
                     android:text="@string/button_power"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_factorial"
@@ -102,7 +102,7 @@
                     android:text="@string/button_factorial"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/test1"
@@ -114,7 +114,7 @@
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                     android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_sine"
@@ -148,7 +148,7 @@
                     android:text="@string/button_sine"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_cosine"
@@ -160,7 +160,7 @@
                     android:text="@string/button_cosine"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_tangent"
@@ -172,7 +172,7 @@
                     android:text="@string/button_tangent"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/test2"
@@ -184,7 +184,7 @@
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
@@ -205,7 +205,7 @@
                     android:text="@string/button_invert"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_eulers_constant"
@@ -217,7 +217,7 @@
                     android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_natural_logarithm"
@@ -229,7 +229,7 @@
                     android:text="@string/button_natural_logarithm"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_logarithm"
@@ -241,7 +241,7 @@
                     android:text="@string/button_logarithm"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/test3"
@@ -253,7 +253,7 @@
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
@@ -287,7 +287,7 @@
                     android:text="@string/button_square"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_pi_dummy"
@@ -299,7 +299,7 @@
                     android:text="@string/button_pi"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_exponent_dummy"
@@ -311,7 +311,7 @@
                     android:text="@string/button_power"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_factorial_dummy"
@@ -323,7 +323,7 @@
                     android:text="@string/button_factorial"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_toggle_rows"
@@ -335,7 +335,7 @@
                     android:text="@string/button_toggle_down"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
@@ -357,7 +357,7 @@
                     android:text="@string/button_angle_units_degrees"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_sine_inverse"
@@ -369,7 +369,7 @@
                     android:text="@string/button_sine_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_cosine_inverse"
@@ -381,7 +381,7 @@
                     android:text="@string/button_cosine_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_tangent_inverse"
@@ -393,7 +393,7 @@
                     android:text="@string/button_tangent_inverse"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/test5"
@@ -405,7 +405,7 @@
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
@@ -427,7 +427,7 @@
                     android:text="@string/button_invert"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_eulers_constant_dummy"
@@ -439,7 +439,7 @@
                     android:text="@string/button_eulers_constant"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_euler_exponent"
@@ -451,7 +451,7 @@
                     android:text="@string/button_euler_exponent"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/button_power_10"
@@ -463,7 +463,7 @@
                     android:text="@string/button_power_10"
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
                 <Button
                     android:id="@+id/test6"
@@ -475,7 +475,7 @@
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/special_button_text_size" />
+                    android:textSize="@dimen/scientific_button_text_size" />
 
             </LinearLayout>
 
