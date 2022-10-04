@@ -5,17 +5,19 @@ import org.mariuszgromada.math.mxparser.Expression
 import org.mariuszgromada.math.mxparser.License
 import org.mariuszgromada.math.mxparser.mXparser
 
-
-class MxparserTester(smartRoundingOption: String) {
+class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, signature: String) {
 
     private val mSmartRoundingOption = smartRoundingOption
-    private val mSignature = "Mario Paul"
+    private val mDefaultAngleUnit = defaultAngleUnit
+    private val mSignature = signature
 
     init {
-        init(mSmartRoundingOption)
+        setRoundingOption(mSmartRoundingOption)
+        setAngleUnit(mDefaultAngleUnit)
     }
 
-    private fun init(roundingOption: String) {
+    private fun setRoundingOption(roundingOption: String) {
+
         when (roundingOption) {
             "almostIntegerRounding" -> {
                 mXparser.consolePrintln("'Almost Integer Rounding' option selected")
@@ -45,6 +47,7 @@ class MxparserTester(smartRoundingOption: String) {
                 Log.e("mXparser", "Not a valid smart rounding option selected")
             }
         }
+
     }
 
     fun calculate(operation: String): String {
@@ -55,6 +58,16 @@ class MxparserTester(smartRoundingOption: String) {
         Log.e(expression.expressionString, result.toString())
         return result.toString()
 
+    }
+
+    fun setAngleUnit(angleUnit: String) {
+        if (angleUnit == "Radians") {
+            mXparser.setRadiansMode()
+            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+        } else {
+            mXparser.setDegreesMode()
+            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+        }
     }
 
     fun toggleAngleUnit(angleUnit: String) {
@@ -175,7 +188,7 @@ class MxparserTester(smartRoundingOption: String) {
         }
 
         mXparser.consolePrintln("Setting rounding option back to init value:")
-        init(mSmartRoundingOption)
+        setRoundingOption(mSmartRoundingOption)
 
         Log.e("mXparser", "Test complete")
         Log.e("mXparser", "======================================================")

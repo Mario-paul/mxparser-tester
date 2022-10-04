@@ -31,7 +31,8 @@
     <string name="button_parenthesis_right">)</string>
     <string name="button_percentage">%</string>
     <string name="button_backspace">←</string>
-    <string name="button_angle_units_degrees">DEG</string>
+
+    <string name="button_angle_units_degrees">RAD</string>
     <string name="button_sine">sin</string>
     <string name="button_cosine">cos</string>
     <string name="button_tangent">tan</string>

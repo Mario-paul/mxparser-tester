@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 // ========================= mXparser Code =================================
-        myMxparser = MxparserTester("unitInTheLast")
+        myMxparser = MxparserTester("unitInTheLast", "Degrees", "Mario Paul")
         myMxparser.confirmNonCommercialUse()
 //        mxparser.runPresetTest("unitInTheLast") // test mXparser
 
