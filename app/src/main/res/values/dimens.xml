@@ -6,7 +6,7 @@
     <dimen name="toggle_button_weight">0.5</dimen>
 
     <!--    font sizes-->
-    <dimen name="scientific_button_text_size">18sp</dimen>
+    <dimen name="scientific_button_text_size">28sp</dimen>
     <dimen name="button_text_size">30sp</dimen>
     <dimen name="button_text_size_small">24sp</dimen>
 
