@@ -1,15 +1,17 @@
 package com.example.mxparsertester
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.mxparsertester.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var mCalculatorViewModel: CalculatorViewModel
 
     private lateinit var myMxparser: MxparserTester
     private var scientificGroup1Visible = true
@@ -20,6 +22,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        Obtain ViewModel
+        mCalculatorViewModel = ViewModelProvider(this).get(CalculatorViewModel::class.java)
+
+//        ViewModel Livedata Observers
+        mCalculatorViewModel.getInputState().observe(this) {
+            binding.inputBox.setText(it)
+        }
+        mCalculatorViewModel.getOutputState().observe(this) {
+            binding.outputScreen.text = it
+        }
 
 //        mXparser Code
         myMxparser = MxparserTester("unitInTheLast", "Degrees", "Mario Paul")
@@ -39,118 +52,26 @@ class MainActivity : AppCompatActivity() {
 //    todo: backspace is essential, find a way to add it
 
     private fun onEqual() {
-        binding.outputScreen.text = myMxparser.calculate(binding.inputBox.text.toString())
+        mCalculatorViewModel.onEqual()
     }
 
     private fun onClear() {
-        binding.inputBox.text.clear()
-        binding.outputScreen.text = "0.0"
-//        myMxparser.checkAngleUnit() // debug, check angle unit (degree or radian) in logcat
+        mCalculatorViewModel.onClear()
     }
 
     private fun onDigit(view: View) {
-        val digit = (view as Button).text
-        binding.inputBox.append(digit) // add digit to lcd screen (input)
+        val digit = (view as Button).text.toString()
+        mCalculatorViewModel.onDigit(digit)
     }
 
     private fun onDecimalPoint(view: View) {
         val decimal = (view as Button).text.toString()
-        binding.inputBox.append(decimal)
+        mCalculatorViewModel.onDecimalPoint(decimal)
     }
 
     private fun onOperator(view: View) {
-
-        when (val operator = (view as Button).text.toString()) {
-
-            "-" -> {
-                binding.inputBox.append(operator)
-            }
-            "+" -> {
-                binding.inputBox.append(operator)
-            }
-            "÷" -> {
-                binding.inputBox.append(operator)
-            }
-            "×" -> {
-                binding.inputBox.append(operator)
-            }
-            "^" -> {
-                binding.inputBox.append(operator)
-            }
-            "%" -> {
-                binding.inputBox.append(operator)
-            }
-            "π" -> {
-                binding.inputBox.append(operator)
-            }
-            "!" -> {
-                binding.inputBox.append(operator)
-            }
-            "√" -> {
-                binding.inputBox.append(operator)
-            }
-
-            "(" -> {
-                binding.inputBox.append(operator)
-            }
-            ")" -> {
-                binding.inputBox.append(operator)
-            }
-            "RAD" -> {
-                binding.buttonAngleUnits.text = getString(R.string.degrees)
-                binding.buttonAngleUnitsDummy.text = getString(R.string.degrees)
-                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
-            "DEG" -> {
-                binding.buttonAngleUnits.text = getString(R.string.radians)
-                binding.buttonAngleUnitsDummy.text = getString(R.string.radians)
-                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
-            "sin" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "cos" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "tan" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "INV" -> {
-                toggleScientificButtons()
-            }
-            "ⅇ" -> {
-                binding.inputBox.append(operator)
-            }
-            "ln" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "log" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "x²" -> {
-                binding.inputBox.append("^2")
-            }
-            "sin⁻¹" -> {
-                binding.inputBox.append("asin(")
-            }
-            "cos⁻¹" -> {
-                binding.inputBox.append("acos(")
-            }
-            "tan⁻¹" -> {
-                binding.inputBox.append("atan(")
-            }
-            "eˣ" -> {
-                binding.inputBox.append("exp(")
-            }
-            "10ˣ" -> {
-                binding.inputBox.append("10^")
-            }
-            else -> {
-                Log.e("onOperator() error", "Not a valid operator inputted")
-            }
-
-        }
-
+        val operator = (view as Button).text.toString()
+        mCalculatorViewModel.onOperator(operator)
     }
 
     private fun toggleRows() {
@@ -245,7 +166,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonExponent.setOnClickListener { onOperator(it) }
         binding.buttonFactorial.setOnClickListener { onOperator(it) }
 
-        binding.buttonAngleUnits.setOnClickListener { onOperator(it) }
+        binding.buttonAngleUnits.setOnClickListener { onOperator(it) } // TODO FINISH MIGRATING TO VIEWMODEL
         binding.buttonSine.setOnClickListener { onOperator(it) }
         binding.buttonCosine.setOnClickListener { onOperator(it) }
         binding.buttonTangent.setOnClickListener { onOperator(it) }
