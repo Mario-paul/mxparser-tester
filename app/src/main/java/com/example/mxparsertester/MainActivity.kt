@@ -21,16 +21,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-// ========================= mXparser Code =================================
+//        mXparser Code
         myMxparser = MxparserTester("unitInTheLast", "Degrees", "Mario Paul")
         myMxparser.confirmNonCommercialUse()
 //        mxparser.runPresetTest("unitInTheLast") // test mXparser
 
-// ========================= Application code ==============================
+//        Application code
         binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
         showGroup1() // set group 1 visibility as default
 
-//        initialize onClickListeners
+//        Initialize onClickListeners
         setOnClickListeners()
 
     }
@@ -60,99 +60,93 @@ class MainActivity : AppCompatActivity() {
 
     private fun onOperator(view: View) {
 
-        val operator = (view as Button).text.toString()
+        when (val operator = (view as Button).text.toString()) {
 
-        binding.inputBox.text.let {
+            "-" -> {
+                binding.inputBox.append(operator)
+            }
+            "+" -> {
+                binding.inputBox.append(operator)
+            }
+            "÷" -> {
+                binding.inputBox.append(operator)
+            }
+            "×" -> {
+                binding.inputBox.append(operator)
+            }
+            "^" -> {
+                binding.inputBox.append(operator)
+            }
+            "%" -> {
+                binding.inputBox.append(operator)
+            }
+            "π" -> {
+                binding.inputBox.append(operator)
+            }
+            "!" -> {
+                binding.inputBox.append(operator)
+            }
+            "√" -> {
+                binding.inputBox.append(operator)
+            }
 
-            when (operator) {
-
-                "-" -> {
-                    binding.inputBox.append(operator)
-                }
-                "+" -> {
-                    binding.inputBox.append(operator)
-                }
-                "÷" -> {
-                    binding.inputBox.append(operator)
-                }
-                "×" -> {
-                    binding.inputBox.append(operator)
-                }
-                "^" -> {
-                    binding.inputBox.append(operator)
-                }
-                "%" -> {
-                    binding.inputBox.append(operator)
-                }
-                "π" -> {
-                    binding.inputBox.append(operator)
-                }
-                "!" -> {
-                    binding.inputBox.append(operator)
-                }
-                "√" -> {
-                    binding.inputBox.append(operator)
-                }
-
-                "(" -> {
-                    binding.inputBox.append(operator)
-                }
-                ")" -> {
-                    binding.inputBox.append(operator)
-                }
-                "RAD" -> {
-                    binding.buttonAngleUnits.text = "DEG"
-                    binding.buttonAngleUnitsDummy.text = "DEG"
-                    myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-                }
-                "DEG" -> {
-                    binding.buttonAngleUnits.text = "RAD"
-                    binding.buttonAngleUnitsDummy.text = "RAD"
-                    myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-                }
-                "sin" -> {
-                    binding.inputBox.append("sin(")
-                }
-                "cos" -> {
-                    binding.inputBox.append("cos(")
-                }
-                "tan" -> {
-                    binding.inputBox.append("tan(")
-                }
-                "INV" -> {
-                    toggleScientificButtons()
-                }
-                "ⅇ" -> {
-                    binding.inputBox.append(operator)
-                }
-                "ln" -> {
-                    binding.inputBox.append("ln(")
-                }
-                "log" -> {
-                    binding.inputBox.append("log(")
-                }
-                "x²" -> {
-                    binding.inputBox.append("^2")
-                }
-                "sin⁻¹" -> {
-                    binding.inputBox.append("asin(")
-                }
-                "cos⁻¹" -> {
-                    binding.inputBox.append("acos(")
-                }
-                "tan⁻¹" -> {
-                    binding.inputBox.append("atan(")
-                }
-                "eˣ" -> {
-                    binding.inputBox.append("exp(")
-                }
-                "10ˣ" -> {
-                    binding.inputBox.append("10^")
-                }
-                else -> {
-                    Log.e("onOperator() error", "Not a valid operator inputted")
-                }
-
+            "(" -> {
+                binding.inputBox.append(operator)
+            }
+            ")" -> {
+                binding.inputBox.append(operator)
+            }
+            "RAD" -> {
+                binding.buttonAngleUnits.text = getString(R.string.degrees)
+                binding.buttonAngleUnitsDummy.text = getString(R.string.degrees)
+                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
+            }
+            "DEG" -> {
+                binding.buttonAngleUnits.text = getString(R.string.radians)
+                binding.buttonAngleUnitsDummy.text = getString(R.string.radians)
+                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
+            }
+            "sin" -> {
+                binding.inputBox.append("$operator(")
+            }
+            "cos" -> {
+                binding.inputBox.append("$operator(")
+            }
+            "tan" -> {
+                binding.inputBox.append("$operator(")
+            }
+            "INV" -> {
+                toggleScientificButtons()
+            }
+            "ⅇ" -> {
+                binding.inputBox.append(operator)
+            }
+            "ln" -> {
+                binding.inputBox.append("$operator(")
+            }
+            "log" -> {
+                binding.inputBox.append("$operator(")
+            }
+            "x²" -> {
+                binding.inputBox.append("^2")
+            }
+            "sin⁻¹" -> {
+                binding.inputBox.append("asin(")
+            }
+            "cos⁻¹" -> {
+                binding.inputBox.append("acos(")
+            }
+            "tan⁻¹" -> {
+                binding.inputBox.append("atan(")
+            }
+            "eˣ" -> {
+                binding.inputBox.append("exp(")
+            }
+            "10ˣ" -> {
+                binding.inputBox.append("10^")
+            }
+            else -> {
+                Log.e("onOperator() error", "Not a valid operator inputted")
             }
 
         }

@@ -49,4 +49,8 @@
     <string name="button_toggle_down">ᐯ</string>
     <string name="button_toggle_up">ᐱ</string>
 
+    <!--    MainActivity.kt-->
+    <string name="radians">RAD</string>
+    <string name="degrees">DEG</string>
+
 </resources>
