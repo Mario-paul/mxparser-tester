@@ -30,68 +30,11 @@ class MainActivity : AppCompatActivity() {
         binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
         showGroup1() // set group 1 visibility as default
 
-        // Digits group
-        binding.buttonOne.setOnClickListener { onDigit(binding.buttonOne) }
-        binding.buttonTwo.setOnClickListener { onDigit(binding.buttonTwo) }
-        binding.buttonThree.setOnClickListener { onDigit(binding.buttonThree) }
-        binding.buttonFour.setOnClickListener { onDigit(binding.buttonFour) }
-        binding.buttonFive.setOnClickListener { onDigit(binding.buttonFive) }
-        binding.buttonSix.setOnClickListener { onDigit(binding.buttonSix) }
-        binding.buttonSeven.setOnClickListener { onDigit(binding.buttonSeven) }
-        binding.buttonEight.setOnClickListener { onDigit(binding.buttonEight) }
-        binding.buttonNine.setOnClickListener { onDigit(binding.buttonNine) }
-        binding.buttonZero.setOnClickListener { onDigit(binding.buttonZero) }
-
-        // Basic operators group
-        binding.buttonAdd.setOnClickListener { onOperator(binding.buttonAdd) }
-        binding.buttonSubtract.setOnClickListener { onOperator(binding.buttonSubtract) }
-        binding.buttonMultiply.setOnClickListener { onOperator(binding.buttonMultiply) }
-        binding.buttonDivide.setOnClickListener { onOperator(binding.buttonDivide) }
-        binding.buttonPercentage.setOnClickListener { onOperator(binding.buttonPercentage) }
-        binding.buttonParenthesisLeft.setOnClickListener { onOperator(binding.buttonParenthesisLeft) }
-        binding.buttonParenthesisRight.setOnClickListener { onOperator(binding.buttonParenthesisRight) }
-
-        // Scientific group 1
-        binding.buttonSquareRoot.setOnClickListener { onOperator(binding.buttonSquareRoot) }
-        binding.buttonPi.setOnClickListener { onOperator(binding.buttonPi) }
-        binding.buttonExponent.setOnClickListener { onOperator(binding.buttonExponent) }
-        binding.buttonFactorial.setOnClickListener { onOperator(binding.buttonFactorial) }
-
-        binding.buttonAngleUnits.setOnClickListener { onOperator(binding.buttonAngleUnits) }
-        binding.buttonSine.setOnClickListener { onOperator(binding.buttonSine) }
-        binding.buttonCosine.setOnClickListener { onOperator(binding.buttonCosine) }
-        binding.buttonTangent.setOnClickListener { onOperator(binding.buttonTangent) }
-
-        binding.buttonInvert.setOnClickListener { onOperator(binding.buttonInvert) }
-        binding.buttonEulersConstant.setOnClickListener { onOperator(binding.buttonEulersConstant) }
-        binding.buttonNaturalLogarithm.setOnClickListener { onOperator(binding.buttonNaturalLogarithm) }
-        binding.buttonLogarithm.setOnClickListener { onOperator(binding.buttonLogarithm) }
-
-        // Scientific group 2
-        binding.buttonSquare.setOnClickListener { onOperator(binding.buttonSquare) }
-        binding.buttonPiDummy.setOnClickListener { onOperator(binding.buttonPiDummy) }
-        binding.buttonExponentDummy.setOnClickListener { onOperator(binding.buttonExponentDummy) }
-        binding.buttonFactorialDummy.setOnClickListener { onOperator(binding.buttonFactorialDummy) }
-
-        binding.buttonAngleUnitsDummy.setOnClickListener { onOperator(binding.buttonAngleUnitsDummy) }
-        binding.buttonSineInverse.setOnClickListener { onOperator(binding.buttonSineInverse) }
-        binding.buttonCosineInverse.setOnClickListener { onOperator(binding.buttonCosineInverse) }
-        binding.buttonTangentInverse.setOnClickListener { onOperator(binding.buttonTangentInverse) }
-
-        binding.buttonInvertDummy.setOnClickListener { onOperator(binding.buttonInvertDummy) }
-        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(binding.buttonEulersConstantDummy) }
-        binding.buttonEulerExponent.setOnClickListener { onOperator(binding.buttonEulerExponent) }
-        binding.buttonPower10.setOnClickListener { onOperator(binding.buttonPower10) }
-
-        // Decimal, clear, equal buttons
-        binding.buttonPeriod.setOnClickListener { onDecimalPoint(binding.buttonPeriod) }
-        binding.buttonClear.setOnClickListener { onClear() }
-        binding.buttonEquals.setOnClickListener { onEqual() }
-//        binding.buttonBackspace.setOnClickListener { onBackspace() }
-
-        binding.buttonToggleRows.setOnClickListener { toggleRows() }
+//        initialize onClickListeners
+        setOnClickListeners()
 
     }
+
 
 //    todo: backspace is essential, find a way to add it
 
@@ -279,5 +222,69 @@ class MainActivity : AppCompatActivity() {
 
         scientificGroup1Visible = false
     }
+
+    private fun setOnClickListeners() {
+        // Digits group
+        binding.buttonOne.setOnClickListener { onDigit(it) }
+        binding.buttonTwo.setOnClickListener { onDigit(it) }
+        binding.buttonThree.setOnClickListener { onDigit(it) }
+        binding.buttonFour.setOnClickListener { onDigit(it) }
+        binding.buttonFive.setOnClickListener { onDigit(it) }
+        binding.buttonSix.setOnClickListener { onDigit(it) }
+        binding.buttonSeven.setOnClickListener { onDigit(it) }
+        binding.buttonEight.setOnClickListener { onDigit(it) }
+        binding.buttonNine.setOnClickListener { onDigit(it) }
+        binding.buttonZero.setOnClickListener { onDigit(it) }
+
+        // Basic operators group
+        binding.buttonAdd.setOnClickListener { onOperator(it) }
+        binding.buttonSubtract.setOnClickListener { onOperator(it) }
+        binding.buttonMultiply.setOnClickListener { onOperator(it) }
+        binding.buttonDivide.setOnClickListener { onOperator(it) }
+        binding.buttonPercentage.setOnClickListener { onOperator(it) }
+        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
+        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
+
+        // Scientific group 1
+        binding.buttonSquareRoot.setOnClickListener { onOperator(it) }
+        binding.buttonPi.setOnClickListener { onOperator(it) }
+        binding.buttonExponent.setOnClickListener { onOperator(it) }
+        binding.buttonFactorial.setOnClickListener { onOperator(it) }
+
+        binding.buttonAngleUnits.setOnClickListener { onOperator(it) }
+        binding.buttonSine.setOnClickListener { onOperator(it) }
+        binding.buttonCosine.setOnClickListener { onOperator(it) }
+        binding.buttonTangent.setOnClickListener { onOperator(it) }
+
+        binding.buttonInvert.setOnClickListener { onOperator(it) }
+        binding.buttonEulersConstant.setOnClickListener { onOperator(it) }
+        binding.buttonNaturalLogarithm.setOnClickListener { onOperator(it) }
+        binding.buttonLogarithm.setOnClickListener { onOperator(it) }
+
+        // Scientific group 2
+        binding.buttonSquare.setOnClickListener { onOperator(it) }
+        binding.buttonPiDummy.setOnClickListener { onOperator(it) }
+        binding.buttonExponentDummy.setOnClickListener { onOperator(it) }
+        binding.buttonFactorialDummy.setOnClickListener { onOperator(it) }
+
+        binding.buttonAngleUnitsDummy.setOnClickListener { onOperator(it) }
+        binding.buttonSineInverse.setOnClickListener { onOperator(it) }
+        binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
+        binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
+
+        binding.buttonInvertDummy.setOnClickListener { onOperator(it) }
+        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(it) }
+        binding.buttonEulerExponent.setOnClickListener { onOperator(it) }
+        binding.buttonPower10.setOnClickListener { onOperator(it) }
+
+        // Decimal, clear, equal buttons
+        binding.buttonPeriod.setOnClickListener { onDecimalPoint(it) }
+        binding.buttonClear.setOnClickListener { onClear() }
+        binding.buttonEquals.setOnClickListener { onEqual() }
+//        binding.buttonBackspace.setOnClickListener { onBackspace() } // TODO ADD THIS FEATURE
+
+        binding.buttonToggleRows.setOnClickListener { toggleRows() }
+    }
+
 
 }
