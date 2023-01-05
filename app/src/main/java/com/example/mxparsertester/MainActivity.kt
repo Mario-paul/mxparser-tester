@@ -171,7 +171,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonCosine.setOnClickListener { onOperator(it) }
         binding.buttonTangent.setOnClickListener { onOperator(it) }
 
-        binding.buttonInvert.setOnClickListener { onOperator(it) }
+        binding.buttonInvert.setOnClickListener { toggleScientificButtons() }
         binding.buttonEulersConstant.setOnClickListener { onOperator(it) }
         binding.buttonNaturalLogarithm.setOnClickListener { onOperator(it) }
         binding.buttonLogarithm.setOnClickListener { onOperator(it) }
@@ -187,7 +187,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
         binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
 
-        binding.buttonInvertDummy.setOnClickListener { onOperator(it) }
+        binding.buttonInvertDummy.setOnClickListener { toggleScientificButtons() }
         binding.buttonEulersConstantDummy.setOnClickListener { onOperator(it) }
         binding.buttonEulerExponent.setOnClickListener { onOperator(it) }
         binding.buttonPower10.setOnClickListener { onOperator(it) }

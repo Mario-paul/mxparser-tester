@@ -119,9 +119,9 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
             "tan" -> {
                 appendCharacter("$operator(")
             }
-            "INV" -> {
-//                toggleScientificButtons()
-            }
+//            "INV" -> {
+////                toggleScientificButtons()
+//            }
             "ⅇ" -> {
                 appendCharacter(operator)
             }
