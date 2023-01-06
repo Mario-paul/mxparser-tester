@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import org.mariuszgromada.math.mxparser.Expression
 
 class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
 
@@ -143,10 +142,8 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     }
 
     private fun calculate() {
-        val input: String? = state[INPUT]
-        val expression = Expression(input)
-        val result = expression.calculate().toString()
-        state[OUTPUT] = result
+        val input: String = state[INPUT]!!
+        state[OUTPUT] = myMxparser.calculate(input)
     }
 
     private fun appendCharacter(char: String) {

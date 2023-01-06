@@ -56,14 +56,15 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
 
     }
 
+    /**
+     * Parse the [operation] string into an expression, calculate it, and return the result.
+     */
     fun calculate(operation: String): String {
-
         val expression = Expression(operation)
         val result = expression.calculate()
+//        Log.e("calculate()", "${expression.expressionString}: $result")
 
-        Log.e(expression.expressionString, result.toString())
         return result.toString()
-
     }
 
     /**
