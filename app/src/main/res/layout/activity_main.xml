@@ -39,83 +39,84 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_layout_input_output">
 
-        <!--SCIENTIFIC GROUP 1-->
+        <!--        SCIENTIFIC BUTTONS -->
+        <!--            Scientific row 1 -->
         <LinearLayout
-            android:id="@+id/scientific_buttons_group_1"
-            android:layout_width="match_parent"
+            android:id="@+id/scientific_buttons_row_1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_1"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/button_square_root"
+                style="@style/ScientificButtons"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:text="@string/button_square_root" />
 
-                <Button
-                    android:id="@+id/button_square_root"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_square_root" />
+            <Button
+                android:id="@+id/button_pi"
+                style="@style/ScientificButtons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_pi" />
 
-                <Button
-                    android:id="@+id/button_pi"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_pi" />
+            <Button
+                android:id="@+id/button_exponent"
+                style="@style/ScientificButtons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_exponent" />
 
-                <Button
-                    android:id="@+id/button_exponent"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_power" />
+            <Button
+                android:id="@+id/button_factorial"
+                style="@style/ScientificButtons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_factorial" />
 
-                <Button
-                    android:id="@+id/button_factorial"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_factorial" />
+            <Button
+                android:id="@+id/button_drawer_toggle"
+                style="@style/ScientificButtons.ToggleButton"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="0.33"
+                android:text="@string/scientific_button_drawer_toggle" />
 
-                <Button
-                    android:id="@+id/test1"
-                    style="@style/ScientificButtons.ToggleButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="" />
+        </LinearLayout>
 
-            </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scientific_buttons_row_1"
+            tools:visibility="visible">
 
+            <!--            Scientific row 2 -->
             <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_2"
-                android:layout_width="match_parent"
+                android:id="@+id/scientific_buttons_row_2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <Button
                     android:id="@+id/button_angle_units"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_angle_units_degrees" />
 
@@ -123,8 +124,7 @@
                     android:id="@+id/button_sine"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_sine" />
 
@@ -132,8 +132,7 @@
                     android:id="@+id/button_cosine"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_cosine" />
 
@@ -141,35 +140,35 @@
                     android:id="@+id/button_tangent"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_tangent" />
 
                 <Button
-                    android:id="@+id/test2"
+                    android:id="@+id/button_dummy_1"
                     style="@style/ScientificButtons.ToggleButton"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="" />
+                    android:layout_height="28dp"
+                    android:layout_weight="0.33"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
+            <!--            Scientific row 3 -->
             <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_3"
-                android:layout_width="match_parent"
+                android:id="@+id/scientific_buttons_row_3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scientific_buttons_row_2">
 
                 <Button
                     android:id="@+id/button_invert"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_invert" />
 
@@ -177,8 +176,7 @@
                     android:id="@+id/button_eulers_constant"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_eulers_constant" />
 
@@ -186,8 +184,7 @@
                     android:id="@+id/button_natural_logarithm"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_natural_logarithm" />
 
@@ -195,224 +192,46 @@
                     android:id="@+id/button_logarithm"
                     style="@style/ScientificButtons"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/button_logarithm" />
 
                 <Button
-                    android:id="@+id/test3"
+                    android:id="@+id/button_dummy_2"
                     style="@style/ScientificButtons.ToggleButton"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="" />
+                    android:layout_height="28dp"
+                    android:layout_weight="0.33"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--SCIENTIFIC GROUP 2-->
-        <LinearLayout
-            android:id="@+id/scientific_buttons_group_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="invisible">
-
-            <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_square"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_square" />
-
-                <Button
-                    android:id="@+id/button_pi_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_pi" />
-
-                <Button
-                    android:id="@+id/button_exponent_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_power" />
-
-                <Button
-                    android:id="@+id/button_factorial_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_factorial" />
-
-                <Button
-                    android:id="@+id/button_toggle_rows"
-                    style="@style/ScientificButtons.ToggleButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="@string/button_toggle_down" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <Button
-                    android:id="@+id/button_angle_units_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_angle_units_degrees" />
-
-                <Button
-                    android:id="@+id/button_sine_inverse"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_sine_inverse" />
-
-                <Button
-                    android:id="@+id/button_cosine_inverse"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_cosine_inverse" />
-
-                <Button
-                    android:id="@+id/button_tangent_inverse"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_tangent_inverse" />
-
-                <Button
-                    android:id="@+id/test5"
-                    style="@style/ScientificButtons.ToggleButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_layout_scientific_row_6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <Button
-                    android:id="@+id/button_invert_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_invert" />
-
-                <Button
-                    android:id="@+id/button_eulers_constant_dummy"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_eulers_constant" />
-
-                <Button
-                    android:id="@+id/button_euler_exponent"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_euler_exponent" />
-
-                <Button
-                    android:id="@+id/button_power_10"
-                    style="@style/ScientificButtons"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="1"
-                    android:text="@string/button_power_10" />
-
-                <Button
-                    android:id="@+id/test6"
-                    style="@style/ScientificButtons.ToggleButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/scientific_button_margin_horizontal"
-                    android:layout_weight="@dimen/toggle_button_weight"
-                    android:text="" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
         <!--        BASIC CALCULATOR BUTTONS-->
         <Button
-            android:id="@+id/button_parenthesis_left"
+            android:id="@+id/button_clear"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-            android:text="@string/button_parenthesis_left"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
+            android:text="@string/button_clear"
             app:layout_constraintBottom_toTopOf="@+id/button_seven"
-            app:layout_constraintEnd_toStartOf="@+id/button_parenthesis_right"
+            app:layout_constraintEnd_toStartOf="@+id/button_parenthesis"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
+            app:layout_constraintTop_toBottomOf="@+id/button_drawer" />
 
+        <!--        TODO fix parenthesis functionality-->
         <Button
-            android:id="@+id/button_parenthesis_right"
+            android:id="@+id/button_parenthesis"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-            android:text="@string/button_parenthesis_right"
-            android:textSize="@dimen/button_text_size"
+            android:text=")"
             app:layout_constraintBottom_toTopOf="@+id/button_eight"
             app:layout_constraintEnd_toStartOf="@+id/button_percentage"
-            app:layout_constraintStart_toEndOf="@+id/button_parenthesis_left"
-            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
+            app:layout_constraintStart_toEndOf="@+id/button_clear"
+            app:layout_constraintTop_toBottomOf="@+id/button_drawer" />
 
         <Button
             android:id="@+id/button_percentage"
@@ -420,12 +239,10 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_percentage"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_nine"
             app:layout_constraintEnd_toStartOf="@+id/button_divide"
-            app:layout_constraintStart_toEndOf="@+id/button_parenthesis_right"
-            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
+            app:layout_constraintStart_toEndOf="@+id/button_parenthesis"
+            app:layout_constraintTop_toBottomOf="@+id/button_drawer" />
 
         <Button
             android:id="@+id/button_divide"
@@ -433,12 +250,10 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_divide"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_multiply"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_percentage"
-            app:layout_constraintTop_toBottomOf="@+id/scientific_buttons_group_1" />
+            app:layout_constraintTop_toBottomOf="@+id/button_drawer" />
 
 
         <Button
@@ -447,12 +262,10 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_seven"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_four"
             app:layout_constraintEnd_toStartOf="@+id/button_eight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_parenthesis_left" />
+            app:layout_constraintTop_toBottomOf="@+id/button_clear" />
 
         <Button
             android:id="@+id/button_eight"
@@ -460,12 +273,10 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_eight"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_five"
             app:layout_constraintEnd_toStartOf="@+id/button_nine"
             app:layout_constraintStart_toEndOf="@+id/button_seven"
-            app:layout_constraintTop_toBottomOf="@+id/button_parenthesis_right" />
+            app:layout_constraintTop_toBottomOf="@+id/button_parenthesis" />
 
         <Button
             android:id="@+id/button_nine"
@@ -473,8 +284,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_nine"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_six"
             app:layout_constraintEnd_toStartOf="@+id/button_multiply"
             app:layout_constraintStart_toEndOf="@+id/button_eight"
@@ -486,8 +295,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_multiply"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_subtract"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_nine"
@@ -500,8 +307,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_four"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_one"
             app:layout_constraintEnd_toStartOf="@+id/button_five"
             app:layout_constraintStart_toStartOf="parent"
@@ -513,8 +318,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_five"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_two"
             app:layout_constraintEnd_toStartOf="@+id/button_six"
             app:layout_constraintStart_toEndOf="@+id/button_four"
@@ -526,8 +329,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_six"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_three"
             app:layout_constraintEnd_toStartOf="@+id/button_subtract"
             app:layout_constraintStart_toEndOf="@+id/button_five"
@@ -539,8 +340,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_subtract"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_six"
@@ -553,8 +352,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_one"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_zero"
             app:layout_constraintEnd_toStartOf="@+id/button_two"
             app:layout_constraintStart_toStartOf="parent"
@@ -566,8 +363,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_two"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_period"
             app:layout_constraintEnd_toStartOf="@+id/button_three"
             app:layout_constraintStart_toEndOf="@+id/button_one"
@@ -579,9 +374,7 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_three"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/button_clear"
+            app:layout_constraintBottom_toTopOf="@+id/button_backspace"
             app:layout_constraintEnd_toStartOf="@+id/button_add"
             app:layout_constraintStart_toEndOf="@+id/button_two"
             app:layout_constraintTop_toBottomOf="@+id/button_six" />
@@ -592,13 +385,10 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_add"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toTopOf="@+id/button_equals"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_three"
             app:layout_constraintTop_toBottomOf="@+id/button_subtract" />
-
 
         <Button
             android:id="@+id/button_zero"
@@ -606,8 +396,6 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_zero"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_period"
             app:layout_constraintStart_toStartOf="parent"
@@ -619,21 +407,17 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_period"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_clear"
+            app:layout_constraintEnd_toStartOf="@+id/button_backspace"
             app:layout_constraintStart_toEndOf="@+id/button_zero"
             app:layout_constraintTop_toBottomOf="@+id/button_two" />
 
         <Button
-            android:id="@+id/button_clear"
+            android:id="@+id/button_backspace"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-            android:text="@string/button_clear"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
+            android:text="@string/button_backspace"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_equals"
             app:layout_constraintStart_toEndOf="@+id/button_period"
@@ -645,20 +429,19 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
             android:text="@string/button_equals"
-            android:textColor="?colorOnPrimary"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_clear"
+            app:layout_constraintStart_toEndOf="@+id/button_backspace"
             app:layout_constraintTop_toBottomOf="@+id/button_add" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--    <Button-->
-    <!--        android:id="@+id/calculate_button"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/calculate_button"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+        <!--    <Button-->
+        <!--        android:id="@+id/calculate_button"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="@string/calculate_button"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

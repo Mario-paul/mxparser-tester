@@ -1,19 +1,21 @@
 package com.example.mxparsertester
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.mxparsertester.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var myMxparser: MxparserTester
-    private var scientificGroup1Visible = true
-    private var scientificRowsHidden = true
+    private lateinit var mCalculatorViewModel: CalculatorViewModel
+
+    private var defaultScientificButtonsLayer = true
+    private var scientificButtonsVisible = false
+    private lateinit var currentAngleUnits: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -21,200 +23,142 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        mXparser Code
-        myMxparser = MxparserTester("unitInTheLast", "Degrees", "Mario Paul")
-        myMxparser.confirmNonCommercialUse()
-//        mxparser.runPresetTest("unitInTheLast") // test mXparser
+//        Obtain ViewModel
+        mCalculatorViewModel = ViewModelProvider(this).get(CalculatorViewModel::class.java)
+
+//        ViewModel Livedata Observers
+        mCalculatorViewModel.getInputState().observe(this) {
+            binding.inputBox.setText(it)
+        }
+        mCalculatorViewModel.getOutputState().observe(this) {
+            binding.outputScreen.text = it
+        }
+        mCalculatorViewModel.getCurrentAngleUnits().observe(this) {
+            currentAngleUnits = it
+        }
 
 //        Application code
         binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
-        showGroup1() // set group 1 visibility as default
 
 //        Initialize onClickListeners
         setOnClickListeners()
+
+//        Initialize mXparser
+        mCalculatorViewModel.initializeMxparser()
 
     }
 
 
 //    todo: backspace is essential, find a way to add it
 
+    /* ================================== ViewModel Calls ==================================== */
     private fun onEqual() {
-        binding.outputScreen.text = myMxparser.calculate(binding.inputBox.text.toString())
+        mCalculatorViewModel.onEqual()
     }
 
     private fun onClear() {
-        binding.inputBox.text.clear()
-        binding.outputScreen.text = "0.0"
-//        myMxparser.checkAngleUnit() // debug, check angle unit (degree or radian) in logcat
+        mCalculatorViewModel.onClear()
     }
 
     private fun onDigit(view: View) {
-        val digit = (view as Button).text
-        binding.inputBox.append(digit) // add digit to lcd screen (input)
+        val digit = (view as Button).text.toString()
+        mCalculatorViewModel.onDigit(digit)
     }
 
     private fun onDecimalPoint(view: View) {
         val decimal = (view as Button).text.toString()
-        binding.inputBox.append(decimal)
+        mCalculatorViewModel.onDecimalPoint(decimal)
     }
 
     private fun onOperator(view: View) {
-
-        when (val operator = (view as Button).text.toString()) {
-
-            "-" -> {
-                binding.inputBox.append(operator)
-            }
-            "+" -> {
-                binding.inputBox.append(operator)
-            }
-            "÷" -> {
-                binding.inputBox.append(operator)
-            }
-            "×" -> {
-                binding.inputBox.append(operator)
-            }
-            "^" -> {
-                binding.inputBox.append(operator)
-            }
-            "%" -> {
-                binding.inputBox.append(operator)
-            }
-            "π" -> {
-                binding.inputBox.append(operator)
-            }
-            "!" -> {
-                binding.inputBox.append(operator)
-            }
-            "√" -> {
-                binding.inputBox.append(operator)
-            }
-
-            "(" -> {
-                binding.inputBox.append(operator)
-            }
-            ")" -> {
-                binding.inputBox.append(operator)
-            }
-            "RAD" -> {
-                binding.buttonAngleUnits.text = getString(R.string.degrees)
-                binding.buttonAngleUnitsDummy.text = getString(R.string.degrees)
-                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
-            "DEG" -> {
-                binding.buttonAngleUnits.text = getString(R.string.radians)
-                binding.buttonAngleUnitsDummy.text = getString(R.string.radians)
-                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
-            "sin" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "cos" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "tan" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "INV" -> {
-                toggleScientificButtons()
-            }
-            "ⅇ" -> {
-                binding.inputBox.append(operator)
-            }
-            "ln" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "log" -> {
-                binding.inputBox.append("$operator(")
-            }
-            "x²" -> {
-                binding.inputBox.append("^2")
-            }
-            "sin⁻¹" -> {
-                binding.inputBox.append("asin(")
-            }
-            "cos⁻¹" -> {
-                binding.inputBox.append("acos(")
-            }
-            "tan⁻¹" -> {
-                binding.inputBox.append("atan(")
-            }
-            "eˣ" -> {
-                binding.inputBox.append("exp(")
-            }
-            "10ˣ" -> {
-                binding.inputBox.append("10^")
-            }
-            else -> {
-                Log.e("onOperator() error", "Not a valid operator inputted")
-            }
-
-        }
-
+        val operator = (view as Button).text.toString()
+        mCalculatorViewModel.onOperator(operator)
     }
 
+    /* ======================================= UI Functions ================================== */
     private fun toggleRows() {
-        if (scientificRowsHidden) {
-            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_up)
-            binding.linearLayoutScientificRow2.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow3.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow5.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow6.visibility = View.VISIBLE
-            scientificRowsHidden = false
+
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+        val drawer = binding.buttonDrawer
+
+        if (scientificButtonsVisible) {
+
+            drawer.visibility = View.GONE
+
+            scientificButtonsVisible = false
+            binding.buttonDrawerToggle.text = "˅"
+//            setMargin(5)
+
         } else {
-            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_down)
-            binding.linearLayoutScientificRow2.visibility = View.GONE
-            binding.linearLayoutScientificRow3.visibility = View.GONE
-            binding.linearLayoutScientificRow5.visibility = View.GONE
-            binding.linearLayoutScientificRow6.visibility = View.GONE
-            scientificRowsHidden = true
+            drawer.visibility = View.VISIBLE
+
+            scientificButtonsVisible = true
+            binding.buttonDrawerToggle.text = "˄"
+//            setMargin(2)
         }
+
     }
 
     private fun toggleScientificButtons() {
 
-        if (scientificGroup1Visible) {
-            showGroup2()
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+        fun setStringResources(
+            button1: Int,
+            button2: Int,
+            button3: Int,
+            button4: Int,
+            button5: Int,
+            button6: Int,
+            defaultLayer: Boolean,
+        ) {
+            binding.buttonSquareRoot.text = resources.getString(button1)
+            binding.buttonSine.text = resources.getString(button2)
+            binding.buttonCosine.text = resources.getString(button3)
+            binding.buttonTangent.text = resources.getString(button4)
+            binding.buttonNaturalLogarithm.text =
+                resources.getString(button5)
+            binding.buttonLogarithm.text = resources.getString(button6)
+            defaultScientificButtonsLayer = defaultLayer
+        }
+
+        if (defaultScientificButtonsLayer) {
+            setStringResources(
+                R.string.button_square,
+                R.string.button_sine_inverse,
+                R.string.button_cosine_inverse,
+                R.string.button_tangent_inverse,
+                R.string.button_euler_exponent,
+                R.string.button_power_10,
+                false,
+            )
         } else {
-            showGroup1()
+            setStringResources(
+                R.string.button_square_root,
+                R.string.button_sine,
+                R.string.button_cosine,
+                R.string.button_tangent,
+                R.string.button_natural_logarithm,
+                R.string.button_logarithm,
+                true,
+            )
         }
 
     }
 
-    private fun showGroup1() {
-        binding.buttonSquareRoot.visibility = View.VISIBLE
-        binding.buttonSine.visibility = View.VISIBLE
-        binding.buttonCosine.visibility = View.VISIBLE
-        binding.buttonTangent.visibility = View.VISIBLE
-        binding.buttonNaturalLogarithm.visibility = View.VISIBLE
-        binding.buttonLogarithm.visibility = View.VISIBLE
+    private fun toggleAngleUnits() {
 
-        binding.buttonSquare.visibility = View.INVISIBLE
-        binding.buttonSineInverse.visibility = View.INVISIBLE
-        binding.buttonCosineInverse.visibility = View.INVISIBLE
-        binding.buttonTangentInverse.visibility = View.INVISIBLE
-        binding.buttonEulerExponent.visibility = View.INVISIBLE
-        binding.buttonPower10.visibility = View.INVISIBLE
+//        vibrator.triggerVibration(chosenVibrationEffect)
 
-        scientificGroup1Visible = true
-    }
+        mCalculatorViewModel.toggleAngleUnits()
 
-    private fun showGroup2() {
-        binding.buttonSquareRoot.visibility = View.INVISIBLE
-        binding.buttonSine.visibility = View.INVISIBLE
-        binding.buttonCosine.visibility = View.INVISIBLE
-        binding.buttonTangent.visibility = View.INVISIBLE
-        binding.buttonNaturalLogarithm.visibility = View.INVISIBLE
-        binding.buttonLogarithm.visibility = View.INVISIBLE
+        if (currentAngleUnits == "radians") {
+            binding.buttonAngleUnits.text = resources.getString(R.string.degrees)
+        } else {
+            binding.buttonAngleUnits.text = resources.getString(R.string.radians)
+        }
 
-        binding.buttonSquare.visibility = View.VISIBLE
-        binding.buttonSineInverse.visibility = View.VISIBLE
-        binding.buttonCosineInverse.visibility = View.VISIBLE
-        binding.buttonTangentInverse.visibility = View.VISIBLE
-        binding.buttonEulerExponent.visibility = View.VISIBLE
-        binding.buttonPower10.visibility = View.VISIBLE
-
-        scientificGroup1Visible = false
     }
 
     private fun setOnClickListeners() {
@@ -236,40 +180,25 @@ class MainActivity : AppCompatActivity() {
         binding.buttonMultiply.setOnClickListener { onOperator(it) }
         binding.buttonDivide.setOnClickListener { onOperator(it) }
         binding.buttonPercentage.setOnClickListener { onOperator(it) }
-        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
-        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
+//        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
+//        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
+        binding.buttonParenthesis.setOnClickListener { onOperator(it) } // TODO - TEMPORARY. FIX PARENTHESIS FUNCTIONALITY
 
-        // Scientific group 1
+        // Scientific group
         binding.buttonSquareRoot.setOnClickListener { onOperator(it) }
         binding.buttonPi.setOnClickListener { onOperator(it) }
         binding.buttonExponent.setOnClickListener { onOperator(it) }
         binding.buttonFactorial.setOnClickListener { onOperator(it) }
 
-        binding.buttonAngleUnits.setOnClickListener { onOperator(it) }
+        binding.buttonAngleUnits.setOnClickListener { toggleAngleUnits() }
         binding.buttonSine.setOnClickListener { onOperator(it) }
         binding.buttonCosine.setOnClickListener { onOperator(it) }
         binding.buttonTangent.setOnClickListener { onOperator(it) }
 
-        binding.buttonInvert.setOnClickListener { onOperator(it) }
+        binding.buttonInvert.setOnClickListener { toggleScientificButtons() }
         binding.buttonEulersConstant.setOnClickListener { onOperator(it) }
         binding.buttonNaturalLogarithm.setOnClickListener { onOperator(it) }
         binding.buttonLogarithm.setOnClickListener { onOperator(it) }
-
-        // Scientific group 2
-        binding.buttonSquare.setOnClickListener { onOperator(it) }
-        binding.buttonPiDummy.setOnClickListener { onOperator(it) }
-        binding.buttonExponentDummy.setOnClickListener { onOperator(it) }
-        binding.buttonFactorialDummy.setOnClickListener { onOperator(it) }
-
-        binding.buttonAngleUnitsDummy.setOnClickListener { onOperator(it) }
-        binding.buttonSineInverse.setOnClickListener { onOperator(it) }
-        binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
-        binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
-
-        binding.buttonInvertDummy.setOnClickListener { onOperator(it) }
-        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(it) }
-        binding.buttonEulerExponent.setOnClickListener { onOperator(it) }
-        binding.buttonPower10.setOnClickListener { onOperator(it) }
 
         // Decimal, clear, equal buttons
         binding.buttonPeriod.setOnClickListener { onDecimalPoint(it) }
@@ -277,7 +206,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonEquals.setOnClickListener { onEqual() }
 //        binding.buttonBackspace.setOnClickListener { onBackspace() } // TODO ADD THIS FEATURE
 
-        binding.buttonToggleRows.setOnClickListener { toggleRows() }
+        binding.buttonDrawerToggle.setOnClickListener { toggleRows() }
     }
 
 
