@@ -100,16 +100,16 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
             ")" -> {
                 appendCharacter(operator)
             }
-            "RAD" -> {
+//            "RAD" -> {
 //                binding.buttonAngleUnits.text = getString(R.string.degrees)
 //                binding.buttonAngleUnitsDummy.text = getString(R.string.degrees)
 //                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
-            "DEG" -> {
+//            }
+//            "DEG" -> {
 //                binding.buttonAngleUnits.text = getString(R.string.radians)
 //                binding.buttonAngleUnitsDummy.text = getString(R.string.radians)
 //                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            }
+//            }
             "sin" -> {
                 appendCharacter("$operator(")
             }
@@ -157,7 +157,7 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
 
     }
 
-    private fun calculate() {
+    fun calculate() {
 
         val input: String? = state[INPUT]
         val expression = Expression(input)

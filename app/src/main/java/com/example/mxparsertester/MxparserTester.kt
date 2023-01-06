@@ -82,8 +82,10 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
 
     fun getCurrentAngleUnit(): String {
         return if (mXparser.checkIfRadiansMode()) {
+//            Log.e("current angle units", "radians")
             "Radians"
-        } else {
+        }  else {
+//            Log.e("current angle units", "degrees")
             "Degrees"
         }
     }

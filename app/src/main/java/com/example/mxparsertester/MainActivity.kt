@@ -138,6 +138,25 @@ class MainActivity : AppCompatActivity() {
         scientificGroup1Visible = false
     }
 
+    private fun toggleAngleUnits() {
+
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+        if (myMxparser.getCurrentAngleUnit() == "Radians") {
+//            binding.buttonAngleUnits.text = resources.getString(R.string.radians)
+//            binding.mainToolbar.menu.findItem(R.id.action_radians).isVisible = false
+            myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
+            mCalculatorViewModel.calculate()
+
+        } else {
+//            binding.buttonAngleUnits.text = resources.getString(R.string.degrees)
+//            binding.mainToolbar.menu.findItem(R.id.action_radians).isVisible = true
+            myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
+            mCalculatorViewModel.calculate()
+        }
+
+    }
+
     private fun setOnClickListeners() {
         // Digits group
         binding.buttonOne.setOnClickListener { onDigit(it) }
@@ -166,7 +185,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonExponent.setOnClickListener { onOperator(it) }
         binding.buttonFactorial.setOnClickListener { onOperator(it) }
 
-        binding.buttonAngleUnits.setOnClickListener { onOperator(it) } // TODO FINISH MIGRATING TO VIEWMODEL
+        binding.buttonAngleUnits.setOnClickListener { toggleAngleUnits() }
         binding.buttonSine.setOnClickListener { onOperator(it) }
         binding.buttonCosine.setOnClickListener { onOperator(it) }
         binding.buttonTangent.setOnClickListener { onOperator(it) }
@@ -182,7 +201,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonExponentDummy.setOnClickListener { onOperator(it) }
         binding.buttonFactorialDummy.setOnClickListener { onOperator(it) }
 
-        binding.buttonAngleUnitsDummy.setOnClickListener { onOperator(it) }
+        binding.buttonAngleUnitsDummy.setOnClickListener { toggleAngleUnits() }
         binding.buttonSineInverse.setOnClickListener { onOperator(it) }
         binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
         binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
