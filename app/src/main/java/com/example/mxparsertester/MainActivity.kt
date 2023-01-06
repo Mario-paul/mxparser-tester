@@ -153,7 +153,7 @@ class MainActivity : AppCompatActivity() {
 
         mCalculatorViewModel.toggleAngleUnits()
 
-        if (currentAngleUnits == "Radians") {
+        if (currentAngleUnits == "radians") {
             binding.buttonAngleUnits.text = resources.getString(R.string.degrees)
         } else {
             binding.buttonAngleUnits.text = resources.getString(R.string.radians)

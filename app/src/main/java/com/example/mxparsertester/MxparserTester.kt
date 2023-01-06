@@ -5,6 +5,9 @@ import org.mariuszgromada.math.mxparser.Expression
 import org.mariuszgromada.math.mxparser.License
 import org.mariuszgromada.math.mxparser.mXparser
 
+/**
+ * Helper class for Mariuz Gromada's [mXparser] math expression parser.
+ */
 class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, signature: String) {
 
     private val mSmartRoundingOption = smartRoundingOption
@@ -16,6 +19,9 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
         setAngleUnit(mDefaultAngleUnit)
     }
 
+    /**
+     * Set the [roundingOption] to the parameter in this function.
+     */
     private fun setRoundingOption(roundingOption: String) {
 
         when (roundingOption) {
@@ -60,36 +66,52 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
 
     }
 
-    fun setAngleUnit(angleUnit: String) {
-        if (angleUnit == "Radians") {
+    /**
+     * Set the [angleUnit] to the parameter in this function.
+     */
+    private fun setAngleUnit(angleUnit: String) {
+        if (angleUnit == "radians") {
             mXparser.setRadiansMode()
-            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+            mXparser.consolePrintln("Angle units initialized to: ${getCurrentAngleUnit()}")
         } else {
             mXparser.setDegreesMode()
-            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+            mXparser.consolePrintln("Angle units initialized to: ${getCurrentAngleUnit()}")
         }
     }
 
-    fun toggleAngleUnit(angleUnit: String) {
-        if (angleUnit == "Radians") {
+    /**
+     * Toggles the angle unit between Degrees and Radians, and returns a string with the new unit type.
+     */
+    fun toggleAngleUnit(): String {
+        return if (mXparser.checkIfRadiansMode()) {
             mXparser.setDegreesMode()
-            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+//            mXparser.consolePrintln("Angle units set to: [${getCurrentAngleUnit()}]")
+            getCurrentAngleUnit()
+
         } else {
             mXparser.setRadiansMode()
-            mXparser.consolePrintln("Radians Mode = " + mXparser.checkIfRadiansMode() + ", Degrees Mode = " + mXparser.checkIfDegreesMode())
+//            mXparser.consolePrintln("Angle units set to: [${getCurrentAngleUnit()}]")
+            getCurrentAngleUnit()
         }
     }
 
+    /**
+     * Returns the current angle units.
+     */
     fun getCurrentAngleUnit(): String {
         return if (mXparser.checkIfRadiansMode()) {
 //            Log.e("current angle units", "radians")
-            "Radians"
-        }  else {
+            "radians"
+        } else {
 //            Log.e("current angle units", "degrees")
-            "Degrees"
+            "degrees"
         }
     }
 
+    /**
+     * Runs a preset test to visualize the kind of output that each set of settings will yield for
+     * the mXparser library.
+     */
     fun runPresetTest(smartRoundingOption: String) {
 
         Log.e("mXparser", "======================================================")
@@ -198,7 +220,7 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
     }
 
     fun confirmNonCommercialUse() {
-        mXparser.consolePrintln("Confirming Non Commercial Use license")
+        mXparser.consolePrintln("========== Confirming Non Commercial Use license ============")
         /* Non-Commercial Use Confirmation */
         val isCallSuccessful: Boolean = License.iConfirmNonCommercialUse(mSignature)
         /* Verification if use type has been already confirmed */
@@ -212,7 +234,7 @@ class MxparserTester(smartRoundingOption: String, defaultAngleUnit: String, sign
     }
 
     fun confirmCommercialUse() {
-        mXparser.consolePrintln("Confirming Commercial Use license")
+        mXparser.consolePrintln("========== Confirming Non Commercial Use license ============")
         /* Commercial Use Confirmation */
         val isCallSuccessful = License.iConfirmCommercialUse(mSignature)
         /* Verification if use type has been already confirmed */

@@ -17,7 +17,7 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     init {
         state[OUTPUT] = ""
         state[INPUT] = ""
-        state[CURRENT_ANGLE_UNIT] = "Degrees"
+        state[CURRENT_ANGLE_UNIT] = "degrees"
     }
 
     // Expose an immutable LiveData
@@ -160,25 +160,13 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
 //        mxparser.runPresetTest("unitInTheLast") // test mXparser
     }
 
+    /**
+     * Toggles the angle unit between Degrees and Radians.
+     */
     fun toggleAngleUnits() {
-
 //        vibrator.triggerVibration(chosenVibrationEffect)
-
-//        val currentAngleUnit = myMxparser.getCurrentAngleUnit()
-        val currentAngleUnit: String = state[CURRENT_ANGLE_UNIT]!!
-
-
-        if (currentAngleUnit == "Radians") {
-            myMxparser.toggleAngleUnit(currentAngleUnit)
-            state[CURRENT_ANGLE_UNIT] = myMxparser.getCurrentAngleUnit()
-            calculate()
-
-        } else {
-            myMxparser.toggleAngleUnit(currentAngleUnit)
-            state[CURRENT_ANGLE_UNIT] = myMxparser.getCurrentAngleUnit()
-            calculate()
-        }
-
+        state[CURRENT_ANGLE_UNIT] = myMxparser.toggleAngleUnit()
+        calculate()
     }
 
 }
