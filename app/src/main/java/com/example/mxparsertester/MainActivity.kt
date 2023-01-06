@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var myMxparser: MxparserTester
     private var scientificGroup1Visible = true
     private var scientificRowsHidden = true
+    private var defaultScientificButtonsLayer = true
+    private var scientificButtonsVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -74,30 +76,104 @@ class MainActivity : AppCompatActivity() {
         mCalculatorViewModel.onOperator(operator)
     }
 
+
     private fun toggleRows() {
-        if (scientificRowsHidden) {
-            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_up)
-            binding.linearLayoutScientificRow2.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow3.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow5.visibility = View.VISIBLE
-            binding.linearLayoutScientificRow6.visibility = View.VISIBLE
-            scientificRowsHidden = false
+
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+        val drawer = binding.buttonDrawer
+
+        if (scientificButtonsVisible) {
+
+            drawer.visibility = View.GONE
+
+            scientificButtonsVisible = false
+            binding.buttonDrawerToggle.text = "˅"
+//            setMargin(5)
+
         } else {
-            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_down)
-            binding.linearLayoutScientificRow2.visibility = View.GONE
-            binding.linearLayoutScientificRow3.visibility = View.GONE
-            binding.linearLayoutScientificRow5.visibility = View.GONE
-            binding.linearLayoutScientificRow6.visibility = View.GONE
-            scientificRowsHidden = true
+            drawer.visibility = View.VISIBLE
+
+            scientificButtonsVisible = true
+            binding.buttonDrawerToggle.text = "˄"
+//            setMargin(2)
         }
+
     }
+
+
+
+//    private fun toggleRows() {
+////        if (scientificRowsHidden) {
+////            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_up)
+////            binding.linearLayoutScientificRow2.visibility = View.VISIBLE
+////            binding.linearLayoutScientificRow3.visibility = View.VISIBLE
+////            binding.linearLayoutScientificRow5.visibility = View.VISIBLE
+////            binding.linearLayoutScientificRow6.visibility = View.VISIBLE
+////            scientificRowsHidden = false
+////        } else {
+////            binding.buttonToggleRows.text = resources.getString(R.string.button_toggle_down)
+////            binding.linearLayoutScientificRow2.visibility = View.GONE
+////            binding.linearLayoutScientificRow3.visibility = View.GONE
+////            binding.linearLayoutScientificRow5.visibility = View.GONE
+////            binding.linearLayoutScientificRow6.visibility = View.GONE
+////            scientificRowsHidden = true
+////        }
+//    }
+
+//    private fun toggleScientificButtons() {
+//
+//        if (scientificGroup1Visible) {
+//            showGroup2()
+//        } else {
+//            showGroup1()
+//        }
+//
+//    }
 
     private fun toggleScientificButtons() {
 
-        if (scientificGroup1Visible) {
-            showGroup2()
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+        fun setStringResources(
+            button1: Int,
+            button2: Int,
+            button3: Int,
+            button4: Int,
+            button5: Int,
+            button6: Int,
+            defaultLayer: Boolean,
+        ) {
+            binding.buttonSquareRoot.text = resources.getString(button1)
+            binding.buttonSine.text = resources.getString(button2)
+            binding.buttonCosine.text = resources.getString(button3)
+            binding.buttonTangent.text = resources.getString(button4)
+            binding.buttonNaturalLogarithm.text =
+                resources.getString(button5)
+            binding.buttonLogarithm.text = resources.getString(button6)
+            defaultScientificButtonsLayer = defaultLayer
+        }
+
+        if (defaultScientificButtonsLayer) {
+            setStringResources(
+                R.string.button_square,
+                R.string.button_sine_inverse,
+                R.string.button_cosine_inverse,
+                R.string.button_tangent_inverse,
+                R.string.button_euler_exponent,
+                R.string.button_power_10,
+                false,
+            )
         } else {
-            showGroup1()
+            setStringResources(
+                R.string.button_square_root,
+                R.string.button_sine,
+                R.string.button_cosine,
+                R.string.button_tangent,
+                R.string.button_natural_logarithm,
+                R.string.button_logarithm,
+                true,
+            )
         }
 
     }
@@ -110,12 +186,12 @@ class MainActivity : AppCompatActivity() {
         binding.buttonNaturalLogarithm.visibility = View.VISIBLE
         binding.buttonLogarithm.visibility = View.VISIBLE
 
-        binding.buttonSquare.visibility = View.INVISIBLE
-        binding.buttonSineInverse.visibility = View.INVISIBLE
-        binding.buttonCosineInverse.visibility = View.INVISIBLE
-        binding.buttonTangentInverse.visibility = View.INVISIBLE
-        binding.buttonEulerExponent.visibility = View.INVISIBLE
-        binding.buttonPower10.visibility = View.INVISIBLE
+//        binding.buttonSquare.visibility = View.INVISIBLE
+//        binding.buttonSineInverse.visibility = View.INVISIBLE
+//        binding.buttonCosineInverse.visibility = View.INVISIBLE
+//        binding.buttonTangentInverse.visibility = View.INVISIBLE
+//        binding.buttonEulerExponent.visibility = View.INVISIBLE
+//        binding.buttonPower10.visibility = View.INVISIBLE
 
         scientificGroup1Visible = true
     }
@@ -128,12 +204,12 @@ class MainActivity : AppCompatActivity() {
         binding.buttonNaturalLogarithm.visibility = View.INVISIBLE
         binding.buttonLogarithm.visibility = View.INVISIBLE
 
-        binding.buttonSquare.visibility = View.VISIBLE
-        binding.buttonSineInverse.visibility = View.VISIBLE
-        binding.buttonCosineInverse.visibility = View.VISIBLE
-        binding.buttonTangentInverse.visibility = View.VISIBLE
-        binding.buttonEulerExponent.visibility = View.VISIBLE
-        binding.buttonPower10.visibility = View.VISIBLE
+//        binding.buttonSquare.visibility = View.VISIBLE
+//        binding.buttonSineInverse.visibility = View.VISIBLE
+//        binding.buttonCosineInverse.visibility = View.VISIBLE
+//        binding.buttonTangentInverse.visibility = View.VISIBLE
+//        binding.buttonEulerExponent.visibility = View.VISIBLE
+//        binding.buttonPower10.visibility = View.VISIBLE
 
         scientificGroup1Visible = false
     }
@@ -176,8 +252,8 @@ class MainActivity : AppCompatActivity() {
         binding.buttonMultiply.setOnClickListener { onOperator(it) }
         binding.buttonDivide.setOnClickListener { onOperator(it) }
         binding.buttonPercentage.setOnClickListener { onOperator(it) }
-        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
-        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
+//        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
+//        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
 
         // Scientific group 1
         binding.buttonSquareRoot.setOnClickListener { onOperator(it) }
@@ -196,20 +272,20 @@ class MainActivity : AppCompatActivity() {
         binding.buttonLogarithm.setOnClickListener { onOperator(it) }
 
         // Scientific group 2
-        binding.buttonSquare.setOnClickListener { onOperator(it) }
-        binding.buttonPiDummy.setOnClickListener { onOperator(it) }
-        binding.buttonExponentDummy.setOnClickListener { onOperator(it) }
-        binding.buttonFactorialDummy.setOnClickListener { onOperator(it) }
-
-        binding.buttonAngleUnitsDummy.setOnClickListener { toggleAngleUnits() }
-        binding.buttonSineInverse.setOnClickListener { onOperator(it) }
-        binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
-        binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
-
-        binding.buttonInvertDummy.setOnClickListener { toggleScientificButtons() }
-        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(it) }
-        binding.buttonEulerExponent.setOnClickListener { onOperator(it) }
-        binding.buttonPower10.setOnClickListener { onOperator(it) }
+//        binding.buttonSquare.setOnClickListener { onOperator(it) }
+//        binding.buttonPiDummy.setOnClickListener { onOperator(it) }
+//        binding.buttonExponentDummy.setOnClickListener { onOperator(it) }
+//        binding.buttonFactorialDummy.setOnClickListener { onOperator(it) }
+//
+//        binding.buttonAngleUnitsDummy.setOnClickListener { toggleAngleUnits() }
+//        binding.buttonSineInverse.setOnClickListener { onOperator(it) }
+//        binding.buttonCosineInverse.setOnClickListener { onOperator(it) }
+//        binding.buttonTangentInverse.setOnClickListener { onOperator(it) }
+//
+//        binding.buttonInvertDummy.setOnClickListener { toggleScientificButtons() }
+//        binding.buttonEulersConstantDummy.setOnClickListener { onOperator(it) }
+//        binding.buttonEulerExponent.setOnClickListener { onOperator(it) }
+//        binding.buttonPower10.setOnClickListener { onOperator(it) }
 
         // Decimal, clear, equal buttons
         binding.buttonPeriod.setOnClickListener { onDecimalPoint(it) }
@@ -217,7 +293,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonEquals.setOnClickListener { onEqual() }
 //        binding.buttonBackspace.setOnClickListener { onBackspace() } // TODO ADD THIS FEATURE
 
-        binding.buttonToggleRows.setOnClickListener { toggleRows() }
+        binding.buttonDrawerToggle.setOnClickListener { toggleRows() }
     }
 
 

@@ -11,5 +11,6 @@
 
     <!--    custom colors-->
     <color name="dark_grey">#323232</color>
+    <color name="light_grey">#A1A1A1</color>
 
 </resources>

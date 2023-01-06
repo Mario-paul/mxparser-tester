@@ -41,7 +41,7 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
 ////        myMxparser.checkAngleUnit() // debug, check angle unit (degree or radian) in logcat
 
         state[INPUT] = ""
-        state[OUTPUT] = "0"
+        state[OUTPUT] = ""
     }
 
     fun onDigit(digit: String) {
