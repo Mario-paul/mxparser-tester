@@ -31,38 +31,27 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     /* ==================================== Calculator Logic =================================== */
 
     fun onEqual() {
-//        binding.outputScreen.text = myMxparser.calculate(binding.inputBox.text.toString())
         calculate()
     }
 
     fun onClear() {
-//        binding.inputBox.text.clear()
-//        binding.outputScreen.text = "0.0"
-////        myMxparser.checkAngleUnit() // debug, check angle unit (degree or radian) in logcat
+//        myMxparser.checkAngleUnit() // debug, check angle unit (degree or radian) in logcat
 
         state[INPUT] = ""
         state[OUTPUT] = ""
     }
 
     fun onDigit(digit: String) {
-//        val digit = (view as Button).text
-//        binding.inputBox.append(digit) // add digit to lcd screen (input)
-
         val currentValue: String? = state[INPUT]
         state[INPUT] = currentValue + digit
     }
 
     fun onDecimalPoint(decimal: String) {
-//        val decimal = (view as Button).text.toString()
-//        binding.inputBox.append(decimal)
-
         val currentValue: String? = state[OUTPUT]
         state[INPUT] = currentValue + decimal
     }
 
     fun onOperator(operator: String) {
-
-//        val operator = (view as Button).text.toString()
 
         when (operator) {
 
@@ -93,23 +82,12 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
             "√" -> {
                 appendCharacter(operator)
             }
-
             "(" -> {
                 appendCharacter(operator)
             }
             ")" -> {
                 appendCharacter(operator)
             }
-//            "RAD" -> {
-//                binding.buttonAngleUnits.text = getString(R.string.degrees)
-//                binding.buttonAngleUnitsDummy.text = getString(R.string.degrees)
-//                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-//            }
-//            "DEG" -> {
-//                binding.buttonAngleUnits.text = getString(R.string.radians)
-//                binding.buttonAngleUnitsDummy.text = getString(R.string.radians)
-//                myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-//            }
             "sin" -> {
                 appendCharacter("$operator(")
             }
@@ -119,9 +97,6 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
             "tan" -> {
                 appendCharacter("$operator(")
             }
-//            "INV" -> {
-////                toggleScientificButtons()
-//            }
             "ⅇ" -> {
                 appendCharacter(operator)
             }
@@ -158,12 +133,10 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     }
 
     fun calculate() {
-
         val input: String? = state[INPUT]
         val expression = Expression(input)
         val result = expression.calculate().toString()
         state[OUTPUT] = result
-
     }
 
     private fun appendCharacter(char: String) {
