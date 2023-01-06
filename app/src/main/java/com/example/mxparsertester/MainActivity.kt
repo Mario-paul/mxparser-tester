@@ -13,9 +13,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mCalculatorViewModel: CalculatorViewModel
 
-    private lateinit var myMxparser: MxparserTester
     private var defaultScientificButtonsLayer = true
     private var scientificButtonsVisible = false
+    private lateinit var currentAngleUnits: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -33,17 +33,18 @@ class MainActivity : AppCompatActivity() {
         mCalculatorViewModel.getOutputState().observe(this) {
             binding.outputScreen.text = it
         }
-
-//        mXparser Code
-        myMxparser = MxparserTester("unitInTheLast", "Degrees", "Mario Paul")
-        myMxparser.confirmNonCommercialUse()
-//        mxparser.runPresetTest("unitInTheLast") // test mXparser
+        mCalculatorViewModel.getCurrentAngleUnits().observe(this) {
+            currentAngleUnits = it
+        }
 
 //        Application code
         binding.inputBox.post { binding.inputBox.requestFocus() } // sets focus input box on onCreate()
 
 //        Initialize onClickListeners
         setOnClickListeners()
+
+//        Initialize mXparser
+        mCalculatorViewModel.initializeMxparser()
 
     }
 
@@ -150,17 +151,12 @@ class MainActivity : AppCompatActivity() {
 
 //        vibrator.triggerVibration(chosenVibrationEffect)
 
-        if (myMxparser.getCurrentAngleUnit() == "Radians") {
-//            binding.buttonAngleUnits.text = resources.getString(R.string.radians)
-//            binding.mainToolbar.menu.findItem(R.id.action_radians).isVisible = false
-            myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            mCalculatorViewModel.calculate()
+        mCalculatorViewModel.toggleAngleUnits()
 
+        if (currentAngleUnits == "Radians") {
+            binding.buttonAngleUnits.text = resources.getString(R.string.degrees)
         } else {
-//            binding.buttonAngleUnits.text = resources.getString(R.string.degrees)
-//            binding.mainToolbar.menu.findItem(R.id.action_radians).isVisible = true
-            myMxparser.toggleAngleUnit(myMxparser.getCurrentAngleUnit())
-            mCalculatorViewModel.calculate()
+            binding.buttonAngleUnits.text = resources.getString(R.string.radians)
         }
 
     }
@@ -186,6 +182,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonPercentage.setOnClickListener { onOperator(it) }
 //        binding.buttonParenthesisLeft.setOnClickListener { onOperator(it) }
 //        binding.buttonParenthesisRight.setOnClickListener { onOperator(it) }
+        binding.buttonParenthesis.setOnClickListener { onOperator(it) } // TODO - TEMPORARY. FIX PARENTHESIS FUNCTIONALITY
 
         // Scientific group
         binding.buttonSquareRoot.setOnClickListener { onOperator(it) }

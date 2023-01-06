@@ -11,21 +11,31 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     companion object {
         private const val OUTPUT = "output"
         private const val INPUT = "input"
+        private const val CURRENT_ANGLE_UNIT = "current_angle_unit"
     }
 
     init {
         state[OUTPUT] = ""
         state[INPUT] = ""
+        state[CURRENT_ANGLE_UNIT] = "Degrees"
     }
 
     // Expose an immutable LiveData
-    fun getInputState(): LiveData<String?> {
+    fun getInputState(): LiveData<String> {
         return state.getLiveData(INPUT)
     }
 
-    fun getOutputState(): LiveData<String?> {
+    fun getOutputState(): LiveData<String> {
         return state.getLiveData(OUTPUT)
     }
+
+    fun getCurrentAngleUnits(): LiveData<String> {
+        return state.getLiveData(CURRENT_ANGLE_UNIT)
+    }
+
+
+    //        mXparser Code
+    private lateinit var myMxparser: MxparserTester
 
 
     /* ==================================== Calculator Logic =================================== */
@@ -132,7 +142,7 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
 
     }
 
-    fun calculate() {
+    private fun calculate() {
         val input: String? = state[INPUT]
         val expression = Expression(input)
         val result = expression.calculate().toString()
@@ -142,6 +152,33 @@ class CalculatorViewModel(private val state: SavedStateHandle) : ViewModel() {
     private fun appendCharacter(char: String) {
         val currentValue: String? = state[INPUT]
         state[INPUT] = currentValue + char
+    }
+
+    fun initializeMxparser() {
+        myMxparser = MxparserTester("unitInTheLast", state[CURRENT_ANGLE_UNIT]!!, "Mario Paul")
+        myMxparser.confirmNonCommercialUse()
+//        mxparser.runPresetTest("unitInTheLast") // test mXparser
+    }
+
+    fun toggleAngleUnits() {
+
+//        vibrator.triggerVibration(chosenVibrationEffect)
+
+//        val currentAngleUnit = myMxparser.getCurrentAngleUnit()
+        val currentAngleUnit: String = state[CURRENT_ANGLE_UNIT]!!
+
+
+        if (currentAngleUnit == "Radians") {
+            myMxparser.toggleAngleUnit(currentAngleUnit)
+            state[CURRENT_ANGLE_UNIT] = myMxparser.getCurrentAngleUnit()
+            calculate()
+
+        } else {
+            myMxparser.toggleAngleUnit(currentAngleUnit)
+            state[CURRENT_ANGLE_UNIT] = myMxparser.getCurrentAngleUnit()
+            calculate()
+        }
+
     }
 
 }
