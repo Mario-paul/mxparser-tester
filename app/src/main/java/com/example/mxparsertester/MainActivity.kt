@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
 //        Initialize mXparser
         mCalculatorViewModel.initializeMxparser()
 
+//        Disable onScreenKeyboard
+        binding.inputBox.showSoftInputOnFocus = false // Disable onScreenKeyboard
+
     }
 
 
@@ -78,8 +81,6 @@ class MainActivity : AppCompatActivity() {
     /* ======================================= UI Functions ================================== */
     private fun toggleRows() {
 
-//        vibrator.triggerVibration(chosenVibrationEffect)
-
         val drawer = binding.buttonDrawer
 
         if (scientificButtonsVisible) {
@@ -101,8 +102,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleScientificButtons() {
-
-//        vibrator.triggerVibration(chosenVibrationEffect)
 
         fun setStringResources(
             button1: Int,
@@ -148,8 +147,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleAngleUnits() {
-
-//        vibrator.triggerVibration(chosenVibrationEffect)
 
         mCalculatorViewModel.toggleAngleUnits()
 

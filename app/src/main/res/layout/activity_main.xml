@@ -16,6 +16,7 @@
 
         <TextView
             android:id="@+id/output_screen"
+            style="@style/InputBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:text="@string/default_output_text"
@@ -24,8 +25,11 @@
 
         <EditText
             android:id="@+id/input_box"
+            style="@style/InputBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint=""
             android:inputType="text"
             android:textAlignment="textEnd"
             android:textSize="32sp" />
@@ -212,6 +216,7 @@
         <!--        BASIC CALCULATOR BUTTONS-->
         <Button
             android:id="@+id/button_clear"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -224,6 +229,7 @@
         <!--        TODO fix parenthesis functionality-->
         <Button
             android:id="@+id/button_parenthesis"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -235,6 +241,7 @@
 
         <Button
             android:id="@+id/button_percentage"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -246,6 +253,7 @@
 
         <Button
             android:id="@+id/button_divide"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -258,6 +266,7 @@
 
         <Button
             android:id="@+id/button_seven"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -269,6 +278,7 @@
 
         <Button
             android:id="@+id/button_eight"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -280,6 +290,7 @@
 
         <Button
             android:id="@+id/button_nine"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -291,6 +302,7 @@
 
         <Button
             android:id="@+id/button_multiply"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -303,6 +315,7 @@
 
         <Button
             android:id="@+id/button_four"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -314,6 +327,7 @@
 
         <Button
             android:id="@+id/button_five"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -325,6 +339,7 @@
 
         <Button
             android:id="@+id/button_six"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -336,6 +351,7 @@
 
         <Button
             android:id="@+id/button_subtract"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -348,6 +364,7 @@
 
         <Button
             android:id="@+id/button_one"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -359,6 +376,7 @@
 
         <Button
             android:id="@+id/button_two"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -370,6 +388,7 @@
 
         <Button
             android:id="@+id/button_three"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -381,6 +400,7 @@
 
         <Button
             android:id="@+id/button_add"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -392,6 +412,7 @@
 
         <Button
             android:id="@+id/button_zero"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -403,6 +424,7 @@
 
         <Button
             android:id="@+id/button_period"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -414,6 +436,7 @@
 
         <Button
             android:id="@+id/button_backspace"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -425,6 +448,7 @@
 
         <Button
             android:id="@+id/button_equals"
+            style="@style/CalculatorButtons"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/button_margin_horizontal"
@@ -433,14 +457,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_backspace"
             app:layout_constraintTop_toBottomOf="@+id/button_add" />
-
-
-        <!--    <Button-->
-        <!--        android:id="@+id/calculate_button"-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:text="@string/calculate_button"-->
-        <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

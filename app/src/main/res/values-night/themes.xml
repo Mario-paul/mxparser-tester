@@ -15,8 +15,8 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <!--    Custom Styles-->
-    <!--    <style name="ScientificButtons" parent="Widget.AppCompat.Button.Borderless">-->
+    <!--    CUSTOM STYLES -->
+    <!--    Scientific Buttons -->
     <style name="ScientificButtons" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textSize">@dimen/scientific_button_text_size</item>
         <item name="android:padding">0dp</item>
@@ -32,6 +32,17 @@
     <style name="ScientificButtons.ToggleButton">
         <item name="android:textSize">18sp</item>
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--    Basic Calculator Buttons -->
+    <style name="CalculatorButtons" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <!--    Input box-->
+    <style name="InputBox">
+        <item name="android:background">@color/dark_grey</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>
